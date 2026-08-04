@@ -202,7 +202,7 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-columns: repeat(5, 1fr);
             gap: 16px;
             margin-top: 20px;
         }
@@ -408,7 +408,7 @@
             <h2 class="section-title"><span class="icon">📊</span> 关键数据</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number">848</span>
+                    <span class="stat-number" id="kimi-days">855</span>
                     <span class="stat-label">天<br>Kimi 深度使用</span>
                 </div>
                 <div class="stat-item">
@@ -480,5 +480,15 @@
             <p class="brand">内蕴万象 · 履践生途</p>
         </footer>
     </div>
+    <script>
+        // Kimi 使用天数：锚定北京时间 2026-08-04 = 第 855 天（起始日 2024-04-02）
+        // 按北京时间（UTC+8）每自然日自动 +1
+        (function () {
+            var startUTC = Date.UTC(2024, 3, 1, 16, 0, 0); // 北京时间 2024-04-02 00:00
+            var days = Math.floor((Date.now() - startUTC) / 86400000) + 1; // 起始日计为第 1 天
+            var el = document.getElementById('kimi-days');
+            if (el && days > 0) el.textContent = days;
+        })();
+    </script>
 </body>
 </html>
