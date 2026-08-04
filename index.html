@@ -4,25 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>游鸿 · 技术型内容创作者</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* YH Design System · 东方新现代主义（五行灵魂色映射暗色场景） */
             --ink-black: #0a0a0f;
             --moon-white: #f0f0f0;
-            --frost-blue: #4a90d9;
-            --gilt-gold: #c9a96e;
-            --bamboo-green: #5a8f7b;
-            --card-bg: rgba(255, 255, 255, 0.04);
-            --card-border: rgba(255, 255, 255, 0.08);
+            --frost-blue: #A9D8E6;   /* glacier · 水 · 希望与清晰 */
+            --gilt-gold: #E0C075;    /* leaf · 金 · 温暖与光晕 */
+            --bamboo-green: #9CC97F; /* tea · 木 · 生长与治愈 */
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(235, 235, 230, 0.14); /* border-soft 暗色映射 */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background: var(--ink-black);
+            background: var(--ink-black) url("./bg-world.jpg") center top / cover no-repeat fixed;
             color: var(--moon-white);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
             line-height: 1.8;
             overflow-x: hidden;
+        }
+
+        /* 阅读保护层：顶部亮区压暗，底部融入墨色 */
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(180deg,
+                rgba(10, 10, 15, 0.55) 0%,
+                rgba(10, 10, 15, 0.25) 35%,
+                rgba(10, 10, 15, 0.45) 65%,
+                rgba(10, 10, 15, 0.78) 100%);
+            pointer-events: none; z-index: 0;
         }
 
         body::before {
@@ -48,9 +64,10 @@
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-family: "Instrument Serif", "Noto Serif SC", serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
             margin-bottom: 12px;
             background: linear-gradient(135deg, var(--moon-white) 0%, var(--gilt-gold) 100%);
             -webkit-background-clip: text;
@@ -361,11 +378,7 @@
             </div>
         </header>
 
-        <!-- 视觉锚点 -->
-        <section class="visual-anchor">
-            <img src="./游鸿世界.png" alt="鸿雁负日 · 游鱼衔月">
-            <p class="visual-caption">鸿雁负日 · 游鱼衔月 —— 日月双悬，三重地貌</p>
-        </section>
+        <!-- 视觉锚点已由整页背景图承担（bg-world.jpg：鸿雁负日 · 榕树成林 · 游鱼衔月） -->
 
         <div class="divider"></div>
 
