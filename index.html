@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游鸿 · 技术型内容创作者</title>
+    <style>
+        :root {
+            --ink-black: #0a0a0f;
+            --moon-white: #f0f0f0;
+            --frost-blue: #4a90d9;
+            --gilt-gold: #c9a96e;
+            --bamboo-green: #5a8f7b;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--ink-black);
+            color: var(--moon-white);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 20% 30%, rgba(201, 169, 110, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(74, 144, 217, 0.03) 0%, transparent 50%);
+            pointer-events: none; z-index: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            position: relative; z-index: 1;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--moon-white) 0%, var(--gilt-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: rgba(240, 240, 240, 0.6);
+            font-weight: 300;
+            margin-bottom: 32px;
+        }
+
+        .hero .oneliner {
+            font-size: 0.95rem;
+            color: rgba(240, 240, 240, 0.5);
+            font-style: italic;
+            max-width: 480px;
+            margin: 0 auto 24px;
+            line-height: 1.7;
+        }
+
+        .tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            border-color: var(--gilt-gold);
+            transform: translateY(-2px);
+        }
+
+        .tag.hardware { color: var(--frost-blue); }
+        .tag.design { color: var(--gilt-gold); }
+        .tag.ai { color: var(--bamboo-green); }
+
+        .visual-anchor {
+            margin: 48px 0;
+            text-align: center;
+        }
+
+        .visual-anchor img {
+            max-width: 100%;
+            width: 480px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease;
+        }
+
+        .visual-anchor img:hover {
+            transform: scale(1.02);
+        }
+
+        .visual-caption {
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: rgba(240, 240, 240, 0.4);
+            font-style: italic;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--card-border), transparent);
+            margin: 48px 0;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title .icon {
+            font-size: 1.5rem;
+        }
+
+        .act-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .act-card:hover {
+            border-color: rgba(201, 169, 110, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .act-number {
+            font-size: 0.75rem;
+            color: var(--gilt-gold);
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .act-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--gilt-gold);
+        }
+
+        .act-card p {
+            font-size: 0.9rem;
+            color: rgba(240, 240, 240, 0.7);
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .act-card .meta {
+            font-size: 0.8rem;
+            color: rgba(240, 240, 240, 0.45);
+            line-height: 1.8;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .act-card .meta span {
+            display: inline-block;
+            margin-right: 16px;
+        }
+
+        .act-card .meta .label {
+            color: var(--frost-blue);
+            font-weight: 500;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            border-color: var(--frost-blue);
+        }
+
+        .stat-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gilt-gold);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: rgba(240, 240, 240, 0.5);
+            line-height: 1.4;
+        }
+
+        .social-section { margin-top: 20px; }
+
+        .social-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .social-item:hover {
+            border-color: var(--bamboo-green);
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .social-content h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--moon-white);
+        }
+
+        .social-content p {
+            font-size: 0.8rem;
+            color: rgba(240, 240, 240, 0.5);
+            line-height: 1.6;
+        }
+
+        .contact {
+            text-align: center;
+            margin-top: 48px;
+            padding: 32px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .contact-links a {
+            color: var(--frost-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border: 1px solid rgba(74, 144, 217, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: rgba(74, 144, 217, 0.1);
+            border-color: var(--frost-blue);
+        }
+
+        .footer-quote {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .footer-quote p {
+            font-size: 1.1rem;
+            color: rgba(240, 240, 240, 0.5);
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .footer-quote .brand {
+            margin-top: 16px;
+            font-size: 0.75rem;
+            color: rgba(240, 240, 240, 0.25);
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; }
+            .tags { gap: 8px; }
+            .tag { padding: 6px 14px; font-size: 0.75rem; }
+            .act-card { padding: 20px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .container { padding: 40px 16px; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero, .visual-anchor, .act-card, .stat-item, .social-item, .contact, .footer-quote {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .visual-anchor { animation-delay: 0.1s; }
+        .act-card:nth-child(1) { animation-delay: 0.2s; }
+        .act-card:nth-child(2) { animation-delay: 0.3s; }
+        .act-card:nth-child(3) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部 -->
+        <header class="hero">
+            <h1>游鸿</h1>
+            <p class="subtitle">技术型内容创作者 · 嵌入式 AI 硬件 × 竖屏知识设计</p>
+            <p class="oneliner">"我用 Kimi 把一个大四留学生的三条线——毕设、内容创作、个人系统——拧成了同一套工作流。"</p>
+            <div class="tags">
+                <span class="tag hardware">🔧 嵌入式硬件工程师</span>
+                <span class="tag design">🎨 竖屏知识设计师</span>
+                <span class="tag ai">🧠 AI 数字孪生架构师</span>
+            </div>
+        </header>
+
+        <!-- 视觉锚点 -->
+        <section class="visual-anchor">
+            <img src="./游鸿世界.png" alt="鸿雁负日 · 游鱼衔月">
+            <p class="visual-caption">鸿雁负日 · 游鱼衔月 —— 日月双悬，三重地貌</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- 三幕叙事 -->
+        <section>
+            <h2 class="section-title"><span class="icon">🎭</span> 三幕叙事</h2>
+
+            <div class="act-card">
+                <div class="act-number">ACT I · 工程师</div>
+                <h3>边界划定</h3>
+                <p>答辩前两周，23 张论文图表 + 99 条俄语术语待返工。我搭了三语管线（中搭框架、俄写正文、英对术语），划定红线：AI 出 80%，我锁 20%。10 天 9 版迭代，毕设 5 分（优秀）。</p>
+                <div class="meta">
+                    <span><span class="label">证据</span> 23 张统一风格图表 · 99 条术语对照（2 版）· memory.md 四条红线</span>
+                </div>
+            </div>
+
+            <div class="act-card">
+                <div class="act-number">ACT II · 创业者</div>
+                <h3>回交阈值</h3>
+                <p>7 个 AI 工具抢活，我给每个 Agent 写了角色卡。v0.1 阈值「3 行回交」必然误触发；v0.1-final 放宽到「150-200 行 / 3 核心文件」。6 条 patch notes，3 条是减规则——给系统松绑。</p>
+                <div class="meta">
+                    <span><span class="label">证据</span> 7 人 Agent 集群 · 6 条 patch notes · 写作专家团 v0.1</span>
+                </div>
+            </div>
+
+            <div class="act-card">
+                <div class="act-number">ACT III · 哲学家</div>
+                <h3>版本迭代</h3>
+                <p>方法论沉淀为 System Boot v5.6，六层操作系统每层有可执行条款。插画比文档早 4 个月诞生——系统是被活出来的，不是被写出来的。文档内的 [NEW] 标注、后加的 Мираж 阵眼，证明它仍在生长。</p>
+                <div class="meta">
+                    <span><span class="label">证据</span> 102 行 System Boot · 3:4 视觉锚点 · 生长痕迹</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- 关键数据 -->
+        <section>
+            <h2 class="section-title"><span class="icon">📊</span> 关键数据</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">848</span>
+                    <span class="stat-label">天<br>Kimi 深度使用</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">分<br>毕业设计成绩</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">93.5%</span>
+                    <span class="stat-label">VBA 批量导出<br>成功率</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">B2</span>
+                    <span class="stat-label">俄语<br>语法体系掌握</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">40-50</span>
+                    <span class="stat-label">分钟<br>标准化推文工作流</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- 内容阵地 -->
+        <section class="social-section">
+            <h2 class="section-title"><span class="icon">📱</span> 内容阵地</h2>
+
+            <div class="social-item">
+                <span class="social-icon">📕</span>
+                <div class="social-content">
+                    <h4>小红书：游鸿思维进阶指南</h4>
+                    <p>INFJ 视角的个人成长与知识管理 · 竖屏思维导图 · AI 效率工具实测</p>
+                </div>
+            </div>
+
+            <div class="social-item">
+                <span class="social-icon">✍️</span>
+                <div class="social-content">
+                    <h4>公众号助教：小熊老师团队</h4>
+                    <p>Kimi 辅助推文排版与视觉设计 · 40-50 分钟标准化产出 · 持续商业交付中</p>
+                </div>
+            </div>
+
+            <div class="social-item">
+                <span class="social-icon">📚</span>
+                <div class="social-content">
+                    <h4>个人号：游鸿在成长</h4>
+                    <p>停更蓄力中，网站上线后恢复更新，统一纳入"游鸿世界"入口</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- 联系 -->
+        <section class="contact">
+            <h2 class="section-title" style="justify-content: center;"><span class="icon">📬</span> 联系我</h2>
+            <div class="contact-links">
+                <a href="mailto:Caffrey024681@gmail.com">📧 邮箱</a>
+                <a href="https://github.com/Caffrey01" target="_blank">🐙 GitHub</a>
+                <a href="https://www.xiaohongshu.com/user/profile/65928dd6000000002001fae7" target="_blank">📕 小红书</a>
+            </div>
+        </section>
+
+        <!-- 底部金句 -->
+        <footer class="footer-quote">
+            <p>"登月路上，每一次真正抵达，从来不是一个人的事。"</p>
+            <p class="brand">游鸿世界 · 履践生途</p>
+        </footer>
+    </div>
+</body>
+</html>
