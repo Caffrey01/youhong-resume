@@ -2,7 +2,9 @@
 
 技术型内容创作者 · 嵌入式 AI 硬件 × 竖屏知识设计
 
-在线访问：https://[待部署后替换].vercel.app
+在线访问：
+- GitHub Pages（境内推荐）：https://caffrey01.github.io/youhong-resume/
+- Vercel（海外推荐）：https://youhong-resume.vercel.app/
 
 ## 技术栈
 - HTML5 / CSS3
