@@ -4,7 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>游鸿｜结构化系统建造者</title>
-    <meta name="description" content="把复杂问题拆成边界、合同、阶段、证据和冻结版本。以电子工程为实体根基，以 Agent 与 Skill 为协作引擎。">
+    <meta name="description" content="把复杂问题拆成边界、合同、阶段、证据和冻结版本。以电子工程为实体根基，以 Agent 与 Skill 为协作引擎，用语言、视觉和产品化能力完成表达与交付。">
+    <meta property="og:title" content="游鸿｜结构化系统建造者">
+    <meta property="og:description" content="把复杂问题拆成边界、合同、阶段、证据和冻结版本。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/youhong-world/web/YW-VS-v0.1_S00_World-Overview-1672.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "游鸿",
+        "sameAs": [
+            "https://github.com/Caffrey01",
+            "https://www.xiaohongshu.com/user/profile/65928dd6000000002001fae7"
+        ]
+    }
+    </script>
     <link rel="preload" as="image" href="./assets/youhong-world/web/YW-VS-v0.1_S01_Dawn-Sky-1672.webp" type="image/webp" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
@@ -19,6 +34,7 @@
             --gold: #E0C075;
             --glacier: #A9D8E6;
             --tea: #9CC97F;
+            --nav-h: 58px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,11 +53,60 @@
 
         .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
+        section { scroll-margin-top: var(--nav-h); }
+
         .section-kicker {
             font-size: 0.78rem; letter-spacing: 0.2em;
             color: var(--world-text-dim); text-transform: uppercase;
             margin-bottom: 12px;
         }
+
+        /* 跳到正文 */
+        .skip-link {
+            position: absolute; left: -999px; top: 0; z-index: 100;
+            background: var(--gold); color: #14100a;
+            padding: 10px 18px; font-size: 0.85rem; text-decoration: none;
+            border-radius: 0 0 6px 0;
+        }
+        .skip-link:focus { left: 0; }
+
+        /* 焦点可见 */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--glacier);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* ========== 导航 ========== */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+            height: var(--nav-h);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 24px;
+            background: linear-gradient(180deg, rgba(10, 10, 15, 0.82) 0%, rgba(10, 10, 15, 0.55) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .site-nav .brand {
+            font-family: "Noto Serif SC", serif;
+            font-weight: 900; font-size: 1rem;
+            color: var(--world-text); text-decoration: none;
+            letter-spacing: 0.06em;
+        }
+        .nav-toggle { display: none; }
+        .nav-toggle-btn {
+            display: none;
+            background: none; border: 1px solid rgba(247, 242, 232, 0.3);
+            color: var(--world-text); font-size: 0.85rem;
+            padding: 7px 14px; border-radius: 6px; cursor: pointer;
+        }
+        .nav-links { display: flex; gap: 4px; list-style: none; }
+        .nav-links a {
+            color: var(--world-text-muted); text-decoration: none;
+            font-size: 0.85rem; padding: 8px 14px; border-radius: 6px;
+            transition: color 0.2s ease, background 0.2s ease;
+        }
+        .nav-links a:hover { color: var(--gold); background: rgba(224, 192, 117, 0.07); }
 
         /* ========== 01 Hero｜S01 晨曦空域 ========== */
         .hero {
@@ -49,7 +114,6 @@
             min-height: 88vh;
             display: flex;
             align-items: center;
-            background: url("./assets/youhong-world/web/YW-VS-v0.1_S01_Dawn-Sky-1672.jpg") right center / cover no-repeat;
         }
         .hero picture, .hero picture img {
             position: absolute; inset: 0;
@@ -123,6 +187,10 @@
             border-style: dashed;
         }
         .btn.disabled:hover { border-color: rgba(247,242,232,0.35); background: none; }
+        .cta-note {
+            font-size: 0.75rem; color: var(--world-text-dim);
+            margin-top: 14px; line-height: 1.7;
+        }
 
         /* ========== 02 核心定位过渡区 ========== */
         .position-bridge {
@@ -140,7 +208,13 @@
         .method {
             position: relative;
             padding: 120px 0;
-            background: url("./assets/youhong-world/web/YW-VS-v0.1_S02_Mirrorlake-Rainforest-1672.jpg") right center / cover no-repeat;
+        }
+        .bg-picture, .bg-picture img {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: right center;
+            z-index: 0;
         }
         .method::after {
             content: "";
@@ -285,13 +359,11 @@
 
         /* 内容阵地 */
         .social-item {
-            display: flex; gap: 18px; align-items: flex-start;
             background: var(--world-card);
             border: 1px solid var(--world-card-border);
             border-radius: 10px;
             padding: 20px 22px; margin-bottom: 12px;
         }
-        .social-item .icon { font-size: 1.3rem; }
         .social-item h4 { font-size: 0.95rem; margin-bottom: 4px; }
         .social-item p { font-size: 0.8rem; color: var(--world-text-dim); line-height: 1.7; }
 
@@ -299,9 +371,6 @@
         .scene {
             position: relative;
             padding: 120px 0;
-            background-position: right center;
-            background-size: cover;
-            background-repeat: no-repeat;
         }
         .scene::after {
             content: "";
@@ -341,7 +410,6 @@
         .scene-panel ul { padding-left: 18px; }
 
         /* 06 S03 春星草原 */
-        .scene-origin { background-image: url("./assets/youhong-world/web/YW-VS-v0.1_S03_Springstar-Grassland-1672.jpg"); }
         .scene-origin::after {
             background: linear-gradient(90deg,
                 rgba(46, 38, 20, 0.60) 0%,
@@ -358,7 +426,6 @@
         .timeline .t-arrow { color: var(--gold); font-size: 0.8rem; }
 
         /* 07 S04 花漠之境 */
-        .scene-repair { background-image: url("./assets/youhong-world/web/YW-VS-v0.1_S04_Flower-Desert-1672.jpg"); }
         .scene-repair::after {
             background: linear-gradient(90deg,
                 rgba(34, 26, 46, 0.58) 0%,
@@ -374,7 +441,6 @@
         .principle .p-num { color: var(--glacier); font-family: "Noto Serif SC", serif; margin-right: 8px; }
 
         /* 08 S05 深海夜域 */
-        .scene-deep { background-image: url("./assets/youhong-world/web/YW-VS-v0.1_S05_Deepsea-Night-1672.jpg"); }
         .scene-deep::after {
             background: linear-gradient(90deg,
                 rgba(8, 18, 34, 0.62) 0%,
@@ -390,11 +456,6 @@
             min-height: 78vh;
             display: flex;
             align-items: flex-end;
-            background: url("./assets/youhong-world/web/YW-VS-v0.1_S00_World-Overview-1672.jpg") center center / cover no-repeat;
-        }
-        .world-entry .world-bg, .world-entry .world-bg img {
-            position: absolute; inset: 0; width: 100%; height: 100%;
-            object-fit: cover; z-index: 0;
         }
         .world-entry-card {
             position: relative; z-index: 2;
@@ -421,14 +482,16 @@
         .contact { padding: 90px 24px 60px; text-align: center; }
         .contact h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 30px; }
         .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-        .contact-links a {
+        .contact-links a, .contact-links button {
             color: var(--glacier); text-decoration: none; font-size: 0.9rem;
             padding: 10px 18px;
             border: 1px solid rgba(169, 216, 230, 0.3);
             border-radius: 8px;
+            background: none; cursor: pointer;
+            font-family: inherit;
             transition: border-color 0.25s ease, background 0.25s ease;
         }
-        .contact-links a:hover { border-color: var(--glacier); background: rgba(169, 216, 230, 0.08); }
+        .contact-links a:hover, .contact-links button:hover { border-color: var(--glacier); background: rgba(169, 216, 230, 0.08); }
         .footer-quote {
             text-align: center; padding: 50px 24px 44px;
             border-top: 1px solid var(--world-card-border);
@@ -445,7 +508,18 @@
             .proj-card, .proj-card:nth-child(n+3) { grid-column: span 1; }
         }
         @media (max-width: 768px) {
-            .hero { min-height: 92vh; background-position: 68% center; }
+            .nav-toggle-btn { display: block; }
+            .nav-links {
+                display: none;
+                position: absolute; top: var(--nav-h); left: 0; right: 0;
+                flex-direction: column; gap: 0;
+                background: rgba(10, 10, 15, 0.96);
+                border-bottom: 1px solid var(--world-card-border);
+                padding: 8px 16px 14px;
+            }
+            .nav-toggle:checked ~ .nav-links { display: flex; }
+            .nav-links a { padding: 12px 10px; font-size: 0.95rem; }
+            .hero { min-height: 92vh; }
             .hero picture img { object-position: 68% center; }
             .hero::after {
                 background: linear-gradient(180deg,
@@ -455,14 +529,15 @@
             }
             .hero-inner { padding: 100px 22px 56px; max-width: 100%; }
             .hero h1 { font-size: 2.2rem; }
-            .method { background-position: 72% center; }
+            .method .bg-picture img { object-position: 72% center; }
             .method::after {
                 background: linear-gradient(180deg,
                     rgba(20, 43, 42, 0.35) 0%,
                     rgba(20, 43, 42, 0.62) 45%,
                     rgba(20, 43, 42, 0.85) 100%);
             }
-            .scene { background-position: 70% center; padding: 90px 0; }
+            .scene { padding: 90px 0; }
+            .scene .bg-picture img { object-position: 70% center; }
             .scene::after {
                 background: linear-gradient(180deg,
                     rgba(14, 18, 26, 0.42) 0%,
@@ -483,12 +558,29 @@
 </head>
 <body>
 
+    <a class="skip-link" href="#main">跳到正文</a>
+
+    <nav class="site-nav" aria-label="主导航">
+        <a class="brand" href="#top">游鸿</a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+        <label for="nav-toggle" class="nav-toggle-btn" aria-label="展开或收起导航">目录</label>
+        <ul class="nav-links">
+            <li><a href="#method">方法</a></li>
+            <li><a href="#projects">项目</a></li>
+            <li><a href="#making">成长</a></li>
+            <li><a href="#world">游鸿世界</a></li>
+            <li><a href="#contact">联系</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+
     <!-- 01 Hero｜S01 晨曦空域·鸿雁负日 -->
     <header class="hero" id="top">
         <picture>
             <source srcset="./assets/youhong-world/web/YW-VS-v0.1_S01_Dawn-Sky-1672.webp" type="image/webp">
             <img src="./assets/youhong-world/web/YW-VS-v0.1_S01_Dawn-Sky-1672.jpg"
-                 width="1672" height="941" alt="" fetchpriority="high" decoding="async">
+                 width="1672" height="941" alt="白色鸿雁灵鸟背负金色日轮，飞越晨曦与云海。" fetchpriority="high" decoding="async">
         </picture>
         <div class="hero-inner">
             <h1>游鸿</h1>
@@ -503,9 +595,10 @@
             </div>
             <div class="cta-row">
                 <a class="btn primary" href="#projects">查看代表项目</a>
-                <span class="btn disabled" title="简历 PDF 待补，下一轮接入">下载简历（待补）</span>
+                <span class="btn disabled" aria-disabled="true" title="简历 PDF 待补，下一轮接入">下载简历（待补）</span>
                 <a class="btn" href="#method">了解我的方法</a>
             </div>
+            <p class="cta-note">简历文档正在进行 V1.2 校准。</p>
         </div>
     </header>
 
@@ -518,6 +611,11 @@
 
     <!-- 03 我的工作方法｜S02 镜湖雨林·榕树成林 -->
     <section class="method" id="method">
+        <picture class="bg-picture">
+            <source srcset="./assets/youhong-world/web/YW-VS-v0.1_S02_Mirrorlake-Rainforest-1672.webp" type="image/webp">
+            <img src="./assets/youhong-world/web/YW-VS-v0.1_S02_Mirrorlake-Rainforest-1672.jpg"
+                 width="1672" height="941" alt="古老榕树生长在镜湖中洲，气根与树影倒映于平静湖面。" loading="lazy" decoding="async">
+        </picture>
         <div class="container">
             <div class="method-inner">
                 <h2>我的工作方法</h2>
@@ -704,25 +802,16 @@
             <!-- 内容阵地 -->
             <div style="margin-top: 56px;">
                 <div class="social-item">
-                    <span class="icon">📕</span>
-                    <div>
-                        <h4>小红书：游鸿思维进阶指南</h4>
-                        <p>INFJ 视角的个人成长与知识管理 · 竖屏思维导图 · AI 效率工具实测</p>
-                    </div>
+                    <h4>小红书：游鸿思维进阶指南</h4>
+                    <p>INFJ 视角的个人成长与知识管理 · 竖屏思维导图 · AI 效率工具实测</p>
                 </div>
                 <div class="social-item">
-                    <span class="icon">✍️</span>
-                    <div>
-                        <h4>运营助教：小熊老师团队</h4>
-                        <p>Kimi 辅助推文排版与视觉设计 · 40-50 分钟标准化产出 · 持续商业交付中</p>
-                    </div>
+                    <h4>运营助教：小熊老师团队</h4>
+                    <p>Kimi 辅助推文排版与视觉设计 · 40-50 分钟标准化产出 · 持续商业交付中</p>
                 </div>
                 <div class="social-item">
-                    <span class="icon">📚</span>
-                    <div>
-                        <h4>公众号：游鸿在成长</h4>
-                        <p>停更蓄力中，网站上线后恢复更新，统一纳入"游鸿世界"入口</p>
-                    </div>
+                    <h4>公众号：游鸿在成长</h4>
+                    <p>停更蓄力中，网站上线后恢复更新，统一纳入"游鸿世界"入口</p>
                 </div>
             </div>
         </div>
@@ -730,6 +819,11 @@
 
     <!-- 06 起点与身份演化｜S03 春星草原·米拉日 -->
     <section class="scene scene-origin" id="origin">
+        <picture class="bg-picture">
+            <source srcset="./assets/youhong-world/web/YW-VS-v0.1_S03_Springstar-Grassland-1672.webp" type="image/webp">
+            <img src="./assets/youhong-world/web/YW-VS-v0.1_S03_Springstar-Grassland-1672.jpg"
+                 width="1672" height="941" alt="合生双心蒲公英米拉日生长在晨光草原，种子随风飘向远方。" loading="lazy" decoding="async">
+        </picture>
         <div class="container">
             <div class="scene-inner">
                 <h2>从一张竖屏思维导图开始</h2>
@@ -758,6 +852,11 @@
 
     <!-- 07 熔断、止损与修复｜S04 花漠之境 -->
     <section class="scene scene-repair" id="repair">
+        <picture class="bg-picture">
+            <source srcset="./assets/youhong-world/web/YW-VS-v0.1_S04_Flower-Desert-1672.webp" type="image/webp">
+            <img src="./assets/youhong-world/web/YW-VS-v0.1_S04_Flower-Desert-1672.jpg"
+                 width="1672" height="941" alt="月色下的花漠修复生态，由多肉、芦荟与仙人掌组成。" loading="lazy" decoding="async">
+        </picture>
         <div class="container">
             <div class="scene-inner">
                 <h2>系统也需要停止、回退与修复</h2>
@@ -779,6 +878,11 @@
 
     <!-- 08 内在世界与语言｜S05 深海夜域·蝶梦鲸衔月 -->
     <section class="scene scene-deep" id="deep">
+        <picture class="bg-picture">
+            <source srcset="./assets/youhong-world/web/YW-VS-v0.1_S05_Deepsea-Night-1672.webp" type="image/webp">
+            <img src="./assets/youhong-world/web/YW-VS-v0.1_S05_Deepsea-Night-1672.jpg"
+                 width="1672" height="941" alt="蝶梦鲸衔着月牙，在深蓝夜海上方游动。" loading="lazy" decoding="async">
+        </picture>
         <div class="container">
             <div class="scene-inner">
                 <h2>深潜、语言与长记忆</h2>
@@ -799,7 +903,7 @@
 
     <!-- 09 游鸿世界入口｜S00 日月双悬·一星三境 -->
     <section class="world-entry" id="world">
-        <picture class="world-bg">
+        <picture class="bg-picture">
             <source srcset="./assets/youhong-world/web/YW-VS-v0.1_S00_World-Overview-1672.webp" type="image/webp">
             <img src="./assets/youhong-world/web/YW-VS-v0.1_S00_World-Overview-1672.jpg"
                  width="1672" height="941" alt="日月并存的幻想世界，中央榕树岛连接草原、花漠与深海生态。" loading="lazy" decoding="async">
@@ -809,9 +913,10 @@
             <p>一颗由方向、承载、过渡、修复与深潜<br>共同构成的个人星球。</p>
             <p class="boot">它不是一张插画，<br>而是《System Boot v5.6》的内在生态投影。</p>
             <div class="cta-row" style="justify-content: center;">
-                <span class="btn disabled" title="世界设定页待建，下一轮接入">查看世界设定（待补）</span>
-                <span class="btn disabled" title="System Boot 在线版待建，下一轮接入">阅读 System Boot（待补）</span>
+                <span class="btn disabled" aria-disabled="true" title="世界设定页待建，下一轮接入">查看世界设定（待补）</span>
+                <span class="btn disabled" aria-disabled="true" title="System Boot 在线版待建，下一轮接入">阅读 System Boot（待补）</span>
             </div>
+            <p class="cta-note" style="text-align: center;">世界设定与 System Boot 在线版将在后续版本开放。</p>
         </div>
     </section>
 
@@ -822,9 +927,11 @@
             <a href="mailto:Caffrey024681@gmail.com">邮箱</a>
             <a href="https://github.com/Caffrey01" target="_blank">GitHub</a>
             <a href="https://www.xiaohongshu.com/user/profile/65928dd6000000002001fae7" target="_blank">小红书</a>
-            <a href="javascript:void(0)" onclick="navigator.clipboard.writeText('youhong-infj');this.textContent='已复制 youhong-infj'">微信 youhong-infj</a>
+            <button type="button" id="wechat-copy">微信 youhong-infj</button>
         </div>
     </section>
+
+    </main>
 
     <footer class="footer-quote">
         <p>"登月路上，每一次真正抵达，从来不是一个人的事。"</p>
@@ -833,11 +940,31 @@
 
     <script>
         // Kimi 使用天数：锚定北京时间 2026-08-04 = 第 855 天（起始日 2024-04-02 计为第 1 天）
+        // 锚点为北京时间 2024-04-02 00:00（UTC 2024-04-01 16:00），按本地时间差计算，跨日以北京时间为准
         (function () {
             var startUTC = Date.UTC(2024, 3, 1, 16, 0, 0);
             var days = Math.floor((Date.now() - startUTC) / 86400000) + 1;
             var el = document.getElementById('kimi-days');
             if (el && days > 0) el.textContent = days + '+';
+        })();
+
+        // 微信复制：支持键盘触发，失败时给出回退提示
+        (function () {
+            var btn = document.getElementById('wechat-copy');
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+                var id = 'youhong-infj';
+                function fallback() {
+                    btn.textContent = '请手动添加：' + id;
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(id).then(function () {
+                        btn.textContent = '已复制 ' + id;
+                    }).catch(fallback);
+                } else {
+                    fallback();
+                }
+            });
         })();
     </script>
 </body>
