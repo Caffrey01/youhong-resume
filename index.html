@@ -3,504 +3,971 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游鸿 · 技术型内容创作者</title>
+    <title>游鸿｜结构化系统建造者</title>
+    <meta name="description" content="把复杂问题拆成边界、合同、阶段、证据和冻结版本。以电子工程为实体根基，以 Agent 与 Skill 为协作引擎，用语言、视觉和产品化能力完成表达与交付。">
+    <link rel="canonical" href="https://youhong-resume.vercel.app/">
+    <meta property="og:title" content="游鸿｜结构化系统建造者">
+    <meta property="og:description" content="把复杂问题拆成边界、合同、阶段、证据和冻结版本。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://youhong-resume.vercel.app/">
+    <meta property="og:image" content="https://youhong-resume.vercel.app/assets/youhong-world/web/YW-VS-v0.1_S00_World-Overview-1672.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "游鸿",
+        "url": "https://youhong-resume.vercel.app/",
+        "sameAs": [
+            "https://github.com/Caffrey01",
+            "https://www.xiaohongshu.com/user/profile/65928dd6000000002001fae7"
+        ]
+    }
+    </script>
+    <link rel="preload" as="image" href="./assets/youhong-world/web/YW-VS-v0.1_S01_Dawn-Sky-1672.webp" type="image/webp" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* YH Design System · 东方新现代主义（五行灵魂色映射暗色场景） */
             --ink-black: #0a0a0f;
-            --moon-white: #f0f0f0;
-            --frost-blue: #A9D8E6;   /* glacier · 水 · 希望与清晰 */
-            --gilt-gold: #E0C075;    /* leaf · 金 · 温暖与光晕 */
-            --bamboo-green: #9CC97F; /* tea · 木 · 生长与治愈 */
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --card-border: rgba(235, 235, 230, 0.14); /* border-soft 暗色映射 */
+            --world-text: #f7f2e8;
+            --world-text-muted: rgba(247, 242, 232, 0.78);
+            --world-text-dim: rgba(247, 242, 232, 0.5);
+            --world-card: rgba(22, 30, 38, 0.58);
+            --world-card-border: rgba(255, 255, 255, 0.12);
+            --gold: #E0C075;
+            --glacier: #A9D8E6;
+            --tea: #9CC97F;
+            --nav-h: 58px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
         body {
-            background: var(--ink-black) url("./bg-world.jpg") center top / cover no-repeat fixed;
-            color: var(--moon-white);
-            font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+            background: var(--ink-black);
+            color: var(--world-text);
+            font-family: "Noto Sans SC", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
             line-height: 1.8;
             overflow-x: hidden;
         }
 
-        /* 阅读保护层：顶部亮区压暗，底部融入墨色 */
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: linear-gradient(180deg,
-                rgba(10, 10, 15, 0.38) 0%,
-                rgba(10, 10, 15, 0.15) 35%,
-                rgba(10, 10, 15, 0.38) 65%,
-                rgba(10, 10, 15, 0.62) 100%);
-            pointer-events: none; z-index: 0;
-        }
+        h1, h2, .serif { font-family: "Noto Serif SC", serif; }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle at 20% 30%, rgba(201, 169, 110, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, rgba(74, 144, 217, 0.03) 0%, transparent 50%);
-            pointer-events: none; z-index: 0;
-        }
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 24px;
-            position: relative; z-index: 1;
-        }
+        section { scroll-margin-top: var(--nav-h); }
 
-        .hero {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .hero h1 {
-            font-family: "Instrument Serif", "Noto Serif SC", serif;
-            font-size: 2.8rem;
-            font-weight: 900;
-            letter-spacing: -0.02em;
+        .section-kicker {
+            font-size: 0.78rem; letter-spacing: 0.2em;
+            color: var(--world-text-dim); text-transform: uppercase;
             margin-bottom: 12px;
-            background: linear-gradient(135deg, var(--moon-white) 0%, var(--gilt-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
-        .hero .subtitle {
-            font-size: 1.1rem;
-            color: rgba(240, 240, 240, 0.6);
-            font-weight: 300;
-            margin-bottom: 32px;
+        /* 跳到正文 */
+        .skip-link {
+            position: absolute; left: -999px; top: 0; z-index: 100;
+            background: var(--gold); color: #14100a;
+            padding: 10px 18px; font-size: 0.85rem; text-decoration: none;
+            border-radius: 0 0 6px 0;
+        }
+        .skip-link:focus { left: 0; }
+
+        /* 焦点可见 */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--glacier);
+            outline-offset: 3px;
+            border-radius: 4px;
         }
 
-        .hero .oneliner {
-            font-size: 0.95rem;
-            color: rgba(240, 240, 240, 0.5);
-            font-style: italic;
-            max-width: 480px;
-            margin: 0 auto 24px;
-            line-height: 1.7;
+        /* ========== 导航 ========== */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+            height: var(--nav-h);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 24px;
+            background: linear-gradient(180deg, rgba(10, 10, 15, 0.82) 0%, rgba(10, 10, 15, 0.55) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
-
-        .tags {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
+        .site-nav .brand {
+            font-family: "Noto Serif SC", serif;
+            font-weight: 900; font-size: 1rem;
+            color: var(--world-text); text-decoration: none;
+            letter-spacing: 0.06em;
         }
-
-        .tag {
-            padding: 8px 20px;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid var(--card-border);
-            background: var(--card-bg);
-            transition: all 0.3s ease;
+        .nav-toggle { display: none; }
+        .nav-toggle-btn {
+            display: none;
+            background: none; border: 1px solid rgba(247, 242, 232, 0.3);
+            color: var(--world-text); font-size: 0.85rem;
+            padding: 7px 14px; border-radius: 6px; cursor: pointer;
         }
-
-        .tag:hover {
-            border-color: var(--gilt-gold);
-            transform: translateY(-2px);
+        .nav-links { display: flex; gap: 4px; list-style: none; }
+        .nav-links a {
+            color: var(--world-text-muted); text-decoration: none;
+            font-size: 0.85rem; padding: 8px 14px; border-radius: 6px;
+            transition: color 0.2s ease, background 0.2s ease;
         }
+        .nav-links a:hover { color: var(--gold); background: rgba(224, 192, 117, 0.07); }
 
-        .tag.hardware { color: var(--frost-blue); }
-        .tag.design { color: var(--gilt-gold); }
-        .tag.ai { color: var(--bamboo-green); }
-
-        .visual-anchor {
-            margin: 48px 0;
-            text-align: center;
-        }
-
-        .visual-anchor img {
-            max-width: 100%;
-            width: 480px;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            transition: transform 0.5s ease;
-        }
-
-        .visual-anchor img:hover {
-            transform: scale(1.02);
-        }
-
-        .visual-caption {
-            margin-top: 16px;
-            font-size: 0.85rem;
-            color: rgba(240, 240, 240, 0.4);
-            font-style: italic;
-        }
-
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--card-border), transparent);
-            margin: 48px 0;
-        }
-
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 28px;
+        /* ========== 01 Hero｜S01 晨曦空域 ========== */
+        .hero {
+            position: relative;
+            min-height: 88vh;
             display: flex;
             align-items: center;
-            gap: 10px;
         }
-
-        .section-title .icon {
-            font-size: 1.5rem;
+        .hero picture, .hero picture img {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: right center;
+            z-index: 0;
         }
-
-        .act-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 28px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
+        .hero::after {
+            content: "";
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(90deg,
+                rgba(28, 32, 43, 0.58) 0%,
+                rgba(28, 32, 43, 0.34) 38%,
+                rgba(28, 32, 43, 0.08) 66%,
+                transparent 100%);
         }
-
-        .act-card:hover {
-            border-color: rgba(201, 169, 110, 0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        .hero-inner {
+            position: relative; z-index: 2;
+            width: 100%;
+            max-width: 520px;
+            padding: 120px 24px 80px;
         }
-
-        .act-number {
-            font-size: 0.75rem;
-            color: var(--gilt-gold);
-            font-weight: 600;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
+        .hero h1 {
+            font-size: 3rem; font-weight: 900;
+            letter-spacing: 0.02em; margin-bottom: 8px;
         }
-
-        .act-card h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--gilt-gold);
+        .hero .role {
+            font-family: "Noto Serif SC", serif;
+            font-size: 1.35rem; font-weight: 600;
+            color: var(--gold); margin-bottom: 24px;
         }
-
-        .act-card p {
-            font-size: 0.9rem;
-            color: rgba(240, 240, 240, 0.7);
-            margin-bottom: 10px;
-            line-height: 1.7;
+        .hero .mothersentence {
+            font-size: 1.05rem; color: var(--world-text);
+            margin-bottom: 14px; line-height: 1.9;
+            overflow-wrap: break-word;
         }
-
-        .act-card .meta {
+        .hero .sub {
+            font-size: 0.92rem; color: var(--world-text-muted);
+            line-height: 1.9; margin-bottom: 28px;
+            overflow-wrap: break-word;
+        }
+        .cap-tags {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px;
+        }
+        .cap-tag {
             font-size: 0.8rem;
-            color: rgba(240, 240, 240, 0.45);
-            line-height: 1.8;
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid var(--card-border);
+            color: var(--world-text-muted);
+            padding: 6px 14px;
+            border: 1px solid rgba(247, 242, 232, 0.22);
+            border-radius: 4px;
+            background: rgba(22, 30, 38, 0.25);
+        }
+        .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+        .btn {
+            font-size: 0.9rem; text-decoration: none;
+            padding: 12px 24px; border-radius: 6px;
+            border: 1px solid rgba(247, 242, 232, 0.35);
+            color: var(--world-text);
+            transition: border-color 0.25s ease, background 0.25s ease;
+        }
+        .btn:hover { border-color: var(--gold); background: rgba(224, 192, 117, 0.08); }
+        .btn.primary {
+            background: rgba(224, 192, 117, 0.14);
+            border-color: rgba(224, 192, 117, 0.55);
+            color: var(--gold);
+        }
+        .btn.primary:hover { background: rgba(224, 192, 117, 0.22); }
+        .btn.disabled {
+            opacity: 0.45; cursor: not-allowed;
+            border-style: dashed;
+        }
+        .btn.disabled:hover { border-color: rgba(247,242,232,0.35); background: none; }
+        .cta-note {
+            font-size: 0.75rem; color: var(--world-text-dim);
+            margin-top: 14px; line-height: 1.7;
         }
 
-        .act-card .meta span {
-            display: inline-block;
-            margin-right: 16px;
-        }
-
-        .act-card .meta .label {
-            color: var(--frost-blue);
-            font-weight: 500;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
-            margin-top: 20px;
-        }
-
-        .stat-item {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 20px 16px;
+        /* ========== 02 核心定位过渡区 ========== */
+        .position-bridge {
+            padding: 110px 24px;
             text-align: center;
-            transition: all 0.3s ease;
+            background: linear-gradient(180deg, #101320 0%, var(--ink-black) 100%);
+        }
+        .position-bridge .lead {
+            font-family: "Noto Serif SC", serif;
+            font-size: 1.5rem; font-weight: 600;
+            line-height: 2.2;
         }
 
-        .stat-item:hover {
-            border-color: var(--frost-blue);
+        /* ========== 03 我的工作方法｜S02 镜湖雨林 ========== */
+        .method {
+            position: relative;
+            padding: 120px 0;
         }
-
-        .stat-number {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--gilt-gold);
-            display: block;
-            margin-bottom: 6px;
+        .bg-picture, .bg-picture img {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: right center;
+            z-index: 0;
         }
-
-        .stat-label {
-            font-size: 0.75rem;
-            color: rgba(240, 240, 240, 0.5);
-            line-height: 1.4;
+        .method::after {
+            content: "";
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(90deg,
+                rgba(20, 43, 42, 0.62) 0%,
+                rgba(20, 43, 42, 0.36) 42%,
+                rgba(20, 43, 42, 0.10) 66%,
+                transparent 100%);
         }
-
-        .social-section { margin-top: 20px; }
-
-        .social-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            margin-bottom: 12px;
-            transition: all 0.3s ease;
+        .method-inner { position: relative; z-index: 2; max-width: 600px; }
+        .method h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 16px; }
+        .method .guide {
+            font-size: 0.95rem; color: var(--world-text-muted);
+            line-height: 2; margin-bottom: 40px; max-width: 460px;
         }
-
-        .social-item:hover {
-            border-color: var(--bamboo-green);
-        }
-
-        .social-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .social-content h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-            color: var(--moon-white);
-        }
-
-        .social-content p {
-            font-size: 0.8rem;
-            color: rgba(240, 240, 240, 0.5);
-            line-height: 1.6;
-        }
-
-        .contact {
-            text-align: center;
-            margin-top: 48px;
-            padding: 32px;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-
-        .contact-links a {
-            color: var(--frost-blue);
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 8px 16px;
-            border: 1px solid rgba(74, 144, 217, 0.3);
+        .steps { display: flex; flex-direction: column; gap: 14px; }
+        .step {
+            display: flex; gap: 18px; align-items: baseline;
+            background: rgba(14, 30, 29, 0.45);
+            border: 1px solid rgba(156, 201, 127, 0.18);
             border-radius: 8px;
-            transition: all 0.3s ease;
+            padding: 16px 20px;
+            backdrop-filter: blur(6px);
+        }
+        .step .num {
+            font-family: "Noto Serif SC", serif;
+            color: var(--tea); font-weight: 600; font-size: 0.9rem;
+            min-width: 28px;
+        }
+        .step .name {
+            font-weight: 500; font-size: 1rem; margin-right: 10px;
+            white-space: nowrap;
+        }
+        .step .desc { font-size: 0.85rem; color: var(--world-text-muted); line-height: 1.8; }
+
+        /* ========== 04 代表项目｜证据卡系统 ========== */
+        .projects { padding: 110px 24px 90px; }
+        .projects h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 14px; }
+        .projects .section-note {
+            font-size: 0.95rem; color: var(--world-text-muted);
+            max-width: 620px; margin-bottom: 48px; line-height: 2;
+        }
+        .proj-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 18px;
+        }
+        .proj-card {
+            grid-column: span 3;
+            background: var(--world-card);
+            border: 1px solid var(--world-card-border);
+            border-radius: 12px;
+            padding: 26px 28px;
+            backdrop-filter: blur(8px);
+            display: flex; flex-direction: column;
+        }
+        .proj-card:nth-child(n+3) { grid-column: span 2; }
+        .proj-card .proj-no {
+            font-size: 0.72rem; letter-spacing: 0.2em;
+            color: var(--gold); font-weight: 600; margin-bottom: 6px;
+        }
+        .proj-card h3 { font-size: 1.08rem; margin-bottom: 16px; }
+        .proj-card .block { margin-bottom: 14px; }
+        .proj-card .block .label {
+            font-size: 0.72rem; letter-spacing: 0.14em;
+            color: var(--world-text-dim); text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .proj-card .block p,
+        .proj-card .block li {
+            font-size: 0.85rem; color: var(--world-text-muted); line-height: 1.85;
+        }
+        .proj-card ul { padding-left: 18px; }
+        .proj-card .status {
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid var(--world-card-border);
+        }
+        .proj-card .tag {
+            display: inline-block;
+            font-size: 0.75rem; color: var(--tea);
+            border: 1px solid rgba(156, 201, 127, 0.35);
+            border-radius: 4px;
+            padding: 4px 12px;
+            background: rgba(156, 201, 127, 0.07);
         }
 
-        .contact-links a:hover {
-            background: rgba(74, 144, 217, 0.1);
-            border-color: var(--frost-blue);
+        /* ========== 05 这套方法是如何形成的｜Kimi 三幕 ========== */
+        .making { padding: 110px 24px 60px; background: linear-gradient(180deg, var(--ink-black) 0%, #0d1017 100%); }
+        .making h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 14px; }
+        .making .section-note {
+            font-size: 0.95rem; color: var(--world-text-muted);
+            max-width: 620px; margin-bottom: 44px; line-height: 2;
+        }
+        .act-card {
+            background: var(--world-card);
+            border: 1px solid var(--world-card-border);
+            border-radius: 12px;
+            padding: 26px 28px;
+            margin-bottom: 18px;
+            backdrop-filter: blur(8px);
+        }
+        .act-card .act-no {
+            font-size: 0.72rem; letter-spacing: 0.2em;
+            color: var(--gold); font-weight: 600; margin-bottom: 6px;
+        }
+        .act-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        .act-card p { font-size: 0.88rem; color: var(--world-text-muted); line-height: 1.9; }
+        .act-card .add {
+            margin-top: 10px;
+            font-size: 0.88rem; color: var(--world-text);
+            line-height: 1.9;
+            padding-left: 12px;
+            border-left: 2px solid rgba(224, 192, 117, 0.45);
+        }
+        .act-card .evi {
+            margin-top: 14px; padding-top: 12px;
+            border-top: 1px solid var(--world-card-border);
+            font-size: 0.78rem; color: var(--world-text-dim);
+        }
+        .act-card .evi b { color: var(--glacier); font-weight: 500; }
+
+        /* 证据快照 */
+        .evidence {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px; margin-top: 20px;
+        }
+        .evi-item {
+            background: var(--world-card);
+            border: 1px solid var(--world-card-border);
+            border-radius: 10px;
+            padding: 20px 16px; text-align: center;
+        }
+        .evi-item .v {
+            font-family: "Noto Serif SC", serif;
+            font-size: 1.35rem; font-weight: 900; color: var(--gold);
+            display: block; margin-bottom: 6px;
+        }
+        .evi-item .k { font-size: 0.75rem; color: var(--world-text-dim); line-height: 1.6; }
+
+        /* 内容阵地 */
+        .social-item {
+            background: var(--world-card);
+            border: 1px solid var(--world-card-border);
+            border-radius: 10px;
+            padding: 20px 22px; margin-bottom: 12px;
+        }
+        .social-item h4 { font-size: 0.95rem; margin-bottom: 4px; }
+        .social-item p { font-size: 0.8rem; color: var(--world-text-dim); line-height: 1.7; }
+
+        /* ========== 06–08 生态场景通用 ========== */
+        .scene {
+            position: relative;
+            padding: 120px 0;
+        }
+        .scene::after {
+            content: "";
+            position: absolute; inset: 0; z-index: 1;
+        }
+        .scene-inner { position: relative; z-index: 2; max-width: 560px; }
+        .scene h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 18px; }
+        .scene .lead-text {
+            font-size: 0.98rem; color: var(--world-text);
+            line-height: 2.1; margin-bottom: 26px;
+        }
+        .scene .verse {
+            font-family: "Noto Serif SC", serif;
+            font-size: 1.05rem; color: var(--world-text);
+            line-height: 2.2; margin-bottom: 26px;
+        }
+        .scene .explain {
+            font-size: 0.88rem; color: var(--world-text-muted);
+            line-height: 2; margin-bottom: 30px;
+        }
+        .scene-panel {
+            background: rgba(14, 20, 28, 0.42);
+            border: 1px solid var(--world-card-border);
+            border-radius: 10px;
+            padding: 22px 24px;
+            backdrop-filter: blur(8px);
+            margin-bottom: 16px;
+        }
+        .scene-panel .label {
+            font-size: 0.72rem; letter-spacing: 0.16em;
+            color: var(--world-text-dim); text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .scene-panel p, .scene-panel li {
+            font-size: 0.88rem; color: var(--world-text-muted); line-height: 1.95;
+        }
+        .scene-panel ul { padding-left: 18px; }
+
+        /* 06 S03 春星草原 */
+        .scene-origin::after {
+            background: linear-gradient(90deg,
+                rgba(46, 38, 20, 0.60) 0%,
+                rgba(46, 38, 20, 0.34) 42%,
+                rgba(46, 38, 20, 0.10) 66%,
+                transparent 100%);
+        }
+        .timeline { display: flex; flex-direction: column; gap: 0; }
+        .timeline .t-item {
+            display: flex; gap: 14px; align-items: baseline;
+            font-size: 0.9rem; color: var(--world-text);
+            padding: 7px 0;
+        }
+        .timeline .t-arrow { color: var(--gold); font-size: 0.8rem; }
+
+        /* 07 S04 花漠之境 */
+        .scene-repair::after {
+            background: linear-gradient(90deg,
+                rgba(34, 26, 46, 0.58) 0%,
+                rgba(34, 26, 46, 0.32) 42%,
+                rgba(34, 26, 46, 0.10) 68%,
+                transparent 100%);
+        }
+        .principle { margin-bottom: 14px; }
+        .principle .p-name {
+            font-weight: 500; font-size: 0.95rem; color: var(--world-text);
+            margin-bottom: 4px;
+        }
+        .principle .p-num { color: var(--glacier); font-family: "Noto Serif SC", serif; margin-right: 8px; }
+
+        /* 08 S05 深海夜域 */
+        .scene-deep::after {
+            background: linear-gradient(90deg,
+                rgba(8, 18, 34, 0.62) 0%,
+                rgba(8, 18, 34, 0.36) 42%,
+                rgba(8, 18, 34, 0.12) 68%,
+                transparent 100%);
         }
 
-        .footer-quote {
+        /* ========== 09 游鸿世界入口｜S00 ========== */
+        .world-entry {
+            position: relative;
+            margin: 0 0 60px;
+            min-height: 78vh;
+            display: flex;
+            align-items: flex-end;
+        }
+        .world-entry-card {
+            position: relative; z-index: 2;
+            margin: 0 auto 56px;
+            max-width: 480px;
             text-align: center;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid var(--card-border);
+            padding: 32px 36px;
+            border-radius: 14px;
+            background: rgba(18, 27, 36, 0.62);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(14px);
+        }
+        .world-entry-card h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 12px; }
+        .world-entry-card p {
+            font-size: 0.9rem; color: var(--world-text-muted);
+            line-height: 2; margin-bottom: 8px;
+        }
+        .world-entry-card .boot {
+            font-size: 0.78rem; color: var(--world-text-dim);
+            margin-bottom: 22px;
         }
 
-        .footer-quote p {
-            font-size: 1.1rem;
-            color: rgba(240, 240, 240, 0.5);
-            font-style: italic;
-            letter-spacing: 1px;
+        /* ========== 10 联系与页脚 ========== */
+        .contact { padding: 90px 24px 60px; text-align: center; }
+        .contact h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 30px; }
+        .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .contact-links a, .contact-links button {
+            color: var(--glacier); text-decoration: none; font-size: 0.9rem;
+            padding: 10px 18px;
+            border: 1px solid rgba(169, 216, 230, 0.3);
+            border-radius: 8px;
+            background: none; cursor: pointer;
+            font-family: inherit;
+            transition: border-color 0.25s ease, background 0.25s ease;
         }
-
+        .contact-links a:hover, .contact-links button:hover { border-color: var(--glacier); background: rgba(169, 216, 230, 0.08); }
+        .footer-quote {
+            text-align: center; padding: 50px 24px 44px;
+            border-top: 1px solid var(--world-card-border);
+        }
+        .footer-quote p { font-size: 1.05rem; color: var(--world-text-dim); font-style: italic; }
         .footer-quote .brand {
-            margin-top: 16px;
-            font-size: 0.75rem;
-            color: rgba(240, 240, 240, 0.25);
-            letter-spacing: 2px;
+            margin-top: 14px; font-size: 0.75rem;
+            color: rgba(247, 242, 232, 0.28); letter-spacing: 0.2em;
         }
 
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 1.8rem; }
-            .tags { gap: 8px; }
-            .tag { padding: 6px 14px; font-size: 0.75rem; }
-            .act-card { padding: 20px; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .container { padding: 40px 16px; }
+        /* ========== 响应式 ========== */
+        @media (max-width: 900px) {
+            .proj-grid { grid-template-columns: 1fr; }
+            .proj-card, .proj-card:nth-child(n+3) { grid-column: span 1; }
+        }
+        @media (max-width: 768px) {
+            .nav-toggle-btn { display: block; }
+            .nav-links {
+                display: none;
+                position: absolute; top: var(--nav-h); left: 0; right: 0;
+                flex-direction: column; gap: 0;
+                background: rgba(10, 10, 15, 0.96);
+                border-bottom: 1px solid var(--world-card-border);
+                padding: 8px 16px 14px;
+            }
+            .nav-toggle:checked ~ .nav-links { display: flex; }
+            .nav-links a { padding: 12px 10px; font-size: 0.95rem; }
+            .hero { min-height: 92vh; }
+            .hero picture img { object-position: 68% center; }
+            .hero::after {
+                background: linear-gradient(180deg,
+                    rgba(28, 32, 43, 0.30) 0%,
+                    rgba(28, 32, 43, 0.55) 55%,
+                    rgba(28, 32, 43, 0.82) 100%);
+            }
+            .hero-inner { padding: 100px 22px 56px; max-width: 100%; }
+            .hero h1 { font-size: 2.2rem; }
+            .method .bg-picture img { object-position: 72% center; }
+            .method::after {
+                background: linear-gradient(180deg,
+                    rgba(20, 43, 42, 0.35) 0%,
+                    rgba(20, 43, 42, 0.62) 45%,
+                    rgba(20, 43, 42, 0.85) 100%);
+            }
+            .scene { padding: 90px 0; }
+            .scene .bg-picture img { object-position: 70% center; }
+            .scene::after {
+                background: linear-gradient(180deg,
+                    rgba(14, 18, 26, 0.42) 0%,
+                    rgba(14, 18, 26, 0.68) 50%,
+                    rgba(14, 18, 26, 0.88) 100%);
+            }
+            .evidence { grid-template-columns: repeat(2, 1fr); }
+            .world-entry { min-height: 88vh; }
+            .world-entry-card { margin: 0 20px 40px; padding: 26px 24px; }
+            .step { flex-wrap: wrap; gap: 6px 14px; }
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * { transition: none !important; animation: none !important; }
         }
-
-        .hero, .visual-anchor, .act-card, .stat-item, .social-item, .contact, .footer-quote {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .visual-anchor { animation-delay: 0.1s; }
-        .act-card:nth-child(1) { animation-delay: 0.2s; }
-        .act-card:nth-child(2) { animation-delay: 0.3s; }
-        .act-card:nth-child(3) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 顶部 -->
-        <header class="hero">
+
+    <a class="skip-link" href="#main">跳到正文</a>
+
+    <nav class="site-nav" aria-label="主导航">
+        <a class="brand" href="#top">游鸿</a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+        <label for="nav-toggle" class="nav-toggle-btn" aria-label="展开或收起导航">目录</label>
+        <ul class="nav-links">
+            <li><a href="#method">方法</a></li>
+            <li><a href="#projects">项目</a></li>
+            <li><a href="#making">成长</a></li>
+            <li><a href="#world">游鸿世界</a></li>
+            <li><a href="#contact">联系</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+
+    <!-- 01 Hero｜S01 晨曦空域·鸿雁负日 -->
+    <header class="hero" id="top">
+        <picture>
+            <source srcset="./assets/youhong-world/web/YW-VS-v0.1_S01_Dawn-Sky-1672.webp" type="image/webp">
+            <img src="./assets/youhong-world/web/YW-VS-v0.1_S01_Dawn-Sky-1672.jpg"
+                 width="1672" height="941" alt="白色鸿雁灵鸟背负金色日轮，飞越晨曦与云海。" fetchpriority="high" decoding="async">
+        </picture>
+        <div class="hero-inner">
             <h1>游鸿</h1>
-            <p class="subtitle">技术型内容创作者 · 嵌入式 AI 硬件 · 竖屏导图设计</p>
-            <p class="oneliner">"我用 Kimi 把一个大四留学生的三条线——毕设、内容创作、个人系统——拧成了同一套工作流。"</p>
-            <div class="tags">
-                <span class="tag hardware">🔧 嵌入式硬件工程师</span>
-                <span class="tag design">🎨 竖屏导图设计师</span>
-                <span class="tag ai">🧠 AI 数字孪生架构师</span>
+            <p class="role">结构化系统建造者</p>
+            <p class="mothersentence">把复杂问题拆成边界、合同、阶段、证据和冻结版本。</p>
+            <p class="sub">以电子工程为实体根基，以 Agent 与 Skill 为协作引擎，用语言、视觉和产品化能力完成表达与交付。</p>
+            <div class="cap-tags">
+                <span class="cap-tag">嵌入式硬件 × AI 产品</span>
+                <span class="cap-tag">Agent / Skill 工程化</span>
+                <span class="cap-tag">知识与视觉产品</span>
+                <span class="cap-tag">中俄技术表达</span>
             </div>
-        </header>
+            <div class="cta-row">
+                <a class="btn primary" href="#projects">查看代表项目</a>
+                <a class="btn" href="assets/resume/chen-youhong-resume-v1.2.pdf" download="陈游鸿_个人简历_v1.2.pdf" type="application/pdf" aria-label="下载陈游鸿个人简历 PDF，共两页">下载简历</a>
+                <a class="btn" href="#method">了解我的方法</a>
+            </div>
+            <p class="cta-note">PDF · 2 页</p>
+        </div>
+    </header>
 
-        <!-- 视觉锚点已由整页背景图承担（bg-world.jpg：鸿雁负日 · 榕树成林 · 游鱼衔月） -->
+    <!-- 02 核心定位过渡区 -->
+    <section class="position-bridge">
+        <div class="container">
+            <p class="lead">硬件、导图、语言、视觉和 Agent，<br>并不是彼此割裂的身份。<br><br>它们是我面对不同问题时，<br>调用的能力接口。</p>
+        </div>
+    </section>
 
-        <div class="divider"></div>
-
-        <!-- 三幕叙事 -->
-        <section>
-            <h2 class="section-title"><span class="icon">🎭</span> 三幕叙事</h2>
-
-            <div class="act-card">
-                <div class="act-number">ACT I · 工程师</div>
-                <h3>边界划定</h3>
-                <p>答辩前两周，23 张论文图表 + 99 条俄语术语待返工。我搭了三语管线（中搭框架、俄写正文、英对术语），划定红线：AI 出 80%，我锁 20%。10 天 9 版迭代，毕设 5 分（优秀）。</p>
-                <div class="meta">
-                    <span><span class="label">证据</span> 23 张统一风格图表 · 99 条术语对照（2 版）· memory.md 四条红线</span>
+    <!-- 03 我的工作方法｜S02 镜湖雨林·榕树成林 -->
+    <section class="method" id="method">
+        <picture class="bg-picture">
+            <source srcset="./assets/youhong-world/web/YW-VS-v0.1_S02_Mirrorlake-Rainforest-1672.webp" type="image/webp">
+            <img src="./assets/youhong-world/web/YW-VS-v0.1_S02_Mirrorlake-Rainforest-1672.jpg"
+                 width="1672" height="941" alt="古老榕树生长在镜湖中洲，气根与树影倒映于平静湖面。" loading="lazy" decoding="async">
+        </picture>
+        <div class="container">
+            <div class="method-inner">
+                <h2>我的工作方法</h2>
+                <p class="guide">复杂问题并不可怕。真正重要的是先确认边界，再把模糊意图变成可审查、可回交、可冻结的系统。</p>
+                <div class="steps">
+                    <div class="step"><span class="num">01</span><span class="name">边界</span><span class="desc">明确什么做、什么不做，以及谁来背书。</span></div>
+                    <div class="step"><span class="num">02</span><span class="name">合同</span><span class="desc">把模糊需求写成不可随意改写的结构、规则与接口。</span></div>
+                    <div class="step"><span class="num">03</span><span class="name">阶段</span><span class="desc">将庞大任务拆成可执行、可暂停、可回交的版本。</span></div>
+                    <div class="step"><span class="num">04</span><span class="name">证据</span><span class="desc">区分做过、跑过、测试通过、适合发布、已经发布和真实使用。</span></div>
+                    <div class="step"><span class="num">05</span><span class="name">冻结版本</span><span class="desc">让每次抵达留下可继承的确定性，同时允许下一版继续生长。</span></div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 04 代表项目｜证据卡系统 -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <p class="section-kicker">Selected Projects</p>
+            <h2>代表项目</h2>
+            <p class="section-note">我关注的不只是"做出了什么"，<br>还包括边界如何划定、证据如何回交，以及什么版本可以被真正放行。</p>
+
+            <div class="proj-grid">
+                <div class="proj-card">
+                    <div class="proj-no">项目 01</div>
+                    <h3>JobCompass · AI 求职导航助手</h3>
+                    <div class="block">
+                        <div class="label">问题</div>
+                        <p>面向大学生与留学生，如何把模糊求职焦虑转化为可执行的岗位导航流程？</p>
+                    </div>
+                    <div class="block">
+                        <div class="label">关键决定</div>
+                        <ul>
+                            <li>Mock / Real Provider 双轨；</li>
+                            <li>Codex 管范围、契约与放行；</li>
+                            <li>Kimi 按任务卡实现与回交；</li>
+                            <li>真实 Provider 偏差过大时停止扩张，不包装结果。</li>
+                        </ul>
+                    </div>
+                    <div class="block">
+                        <div class="label">最终资产</div>
+                        <p>Web MVP · DeepSeek 接入 · CASE_001 / 016 / 030 验证 · 比赛提交材料</p>
+                    </div>
+                    <div class="status"><span class="tag">工程闭环 · 已完成比赛提交</span></div>
+                </div>
+
+                <div class="proj-card">
+                    <div class="proj-no">项目 02</div>
+                    <h3>飞书图文交付流水线</h3>
+                    <div class="block">
+                        <div class="label">问题</div>
+                        <p>如何将多轮生成、插图替换和飞书写入做成可恢复、可反查的真实交付流程？</p>
+                    </div>
+                    <div class="block">
+                        <div class="label">关键决定</div>
+                        <ul>
+                            <li>凭证隔离；</li>
+                            <li>首张确认后再批量；</li>
+                            <li>断点续跑；</li>
+                            <li>新版先就位、旧版后删除；</li>
+                            <li>API 成功后必须外部反查。</li>
+                        </ul>
+                    </div>
+                    <div class="block">
+                        <div class="label">最终资产</div>
+                        <p>progress / result / inventory · 图文替换与 QA · 飞书真实交付 · SOP 与归档记录</p>
+                    </div>
+                    <div class="status"><span class="tag">真实交付</span></div>
+                </div>
+
+                <div class="proj-card">
+                    <div class="proj-no">项目 03</div>
+                    <h3>欢迎海报确定性渲染</h3>
+                    <div class="block">
+                        <div class="label">问题</div>
+                        <p>如何让头像、昵称、日期与固定二维码在不同主题下稳定生成，同时阻止错误版本被发布？</p>
+                    </div>
+                    <div class="block">
+                        <div class="label">关键决定</div>
+                        <ul>
+                            <li>固定资产哈希；</li>
+                            <li>空昵称与异常输入阻断；</li>
+                            <li>测试通过不等于发布通过；</li>
+                            <li>统一双主题候选即使 40/40 通过，仍因发布条件不足判定 FAIL；</li>
+                            <li>后续蓝黄独立路线成功，不覆盖早期 FAIL。</li>
+                        </ul>
+                    </div>
+                    <div class="block">
+                        <div class="label">最终资产</div>
+                        <p>两条确定性渲染路线 · 测试矩阵 · QA / Release Candidate 记录 · 蓝黄路线后续部署</p>
+                    </div>
+                    <div class="status"><span class="tag">发布治理</span></div>
+                </div>
+
+                <div class="proj-card">
+                    <div class="proj-no">项目 04</div>
+                    <h3>Book Curation PPT Kit</h3>
+                    <div class="block">
+                        <div class="label">问题</div>
+                        <p>如何将长篇策展内容稳定转化为 30 页 PPT / PDF，而不让 Agent 擅自改写内容与结构？</p>
+                    </div>
+                    <div class="block">
+                        <div class="label">关键决定</div>
+                        <ul>
+                            <li>Brief → 长文 → 蓝图 → Text JSON → Prompt → 图像 → 母版 → PPT/PDF；</li>
+                            <li>Text JSON 作为内容合同；</li>
+                            <li>内容、视觉与工程分层；</li>
+                            <li>局部返修而非整套重做。</li>
+                        </ul>
+                    </div>
+                    <div class="block">
+                        <div class="label">最终资产</div>
+                        <p>两套 30 页策展生产链 · 页面合同 · PPT / PDF · Review 与复盘文档</p>
+                    </div>
+                    <div class="status"><span class="tag">内容系统</span></div>
+                </div>
+
+                <div class="proj-card">
+                    <div class="proj-no">项目 05</div>
+                    <h3>知识库商品图 Skill</h3>
+                    <div class="block">
+                        <div class="label">问题</div>
+                        <p>如何把知识库内容、真实截图、商品化叙事与七页视觉交付封装为可重复调用的 Skill？</p>
+                    </div>
+                    <div class="block">
+                        <div class="label">关键决定</div>
+                        <ul>
+                            <li>不伪造真实截图；</li>
+                            <li>真实截图替换与单页返修；</li>
+                            <li>ChatGPT 负责视觉生成；</li>
+                            <li>Codex 负责流程、冻结、复盘与 Skill 沉淀；</li>
+                            <li>根据失败模式重新分配工具职责。</li>
+                        </ul>
+                    </div>
+                    <div class="block">
+                        <div class="label">最终资产</div>
+                        <p>七页商品主图与详情页 · ChatGPT 简易教程 · Codex / Agent 系统版方法 · Skill 与冻结流程</p>
+                    </div>
+                    <div class="status"><span class="tag">知识产品</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 这套方法是如何形成的｜Kimi 三幕 -->
+    <section class="making" id="making">
+        <div class="container">
+            <p class="section-kicker">The Making</p>
+            <h2>这套方法是如何形成的</h2>
+            <p class="section-note">边界、回交与版本，不是后来包装出来的方法论，<br>而是在长期协作和真实项目中逐步形成的。Kimi 参与并见证了全过程。</p>
 
             <div class="act-card">
-                <div class="act-number">ACT II · 创业者</div>
+                <div class="act-no">ACT I · 工程师</div>
+                <h3>边界划定</h3>
+                <p>答辩前两周，23 张论文图表 + 99 条俄语术语待返工。我搭了三语管线（中搭框架、俄写正文、英对术语），划定红线：AI 出 80%，我锁 20%。10 天 9 版迭代，毕设 5 分（优秀）。V1 仿真、V2 串口、V3 真实硬件，每一版边界都写进 README。</p>
+                <p class="add">边界不只是态度，而是进入 README、Provider 开关、输入协议与发布条件的系统规则。</p>
+                <div class="evi"><b>证据</b> 23 张统一风格图表 · 99 条术语对照（2 版）· memory.md 四条红线</div>
+            </div>
+
+            <div class="act-card">
+                <div class="act-no">ACT II · 创业者</div>
                 <h3>回交阈值</h3>
                 <p>7 个 AI 工具抢活，我给每个 Agent 写了角色卡。v0.1 阈值「3 行回交」必然误触发；v0.1-final 放宽到「150-200 行 / 3 核心文件」。6 条 patch notes，3 条是减规则——给系统松绑。</p>
-                <div class="meta">
-                    <span><span class="label">证据</span> 7 人 Agent 集群 · 6 条 patch notes · 写作专家团 v0.1</span>
-                </div>
+                <p class="add">回交不再是"换一个 Agent"，而是提交一组可审查的合同、运行结果与证据。</p>
+                <div class="evi"><b>证据</b> 7 人 Agent 集群 · 6 条 patch notes · 写作专家团 v0.1</div>
             </div>
 
             <div class="act-card">
-                <div class="act-number">ACT III · 哲学家</div>
+                <div class="act-no">ACT III · 哲学家</div>
                 <h3>版本迭代</h3>
-                <p>方法论沉淀为 System Boot v5.6，六层操作系统每层有可执行条款。插画比文档早 4 个月诞生——系统是被活出来的，不是被写出来的。文档内的 [NEW] 标注、后加的 Мираж 阵眼，证明它仍在生长。</p>
-                <div class="meta">
-                    <span><span class="label">证据</span> 102 行 System Boot · 3:4 视觉锚点 · 生长痕迹</span>
-                </div>
+                <p>方法论沉淀为 System Boot v5.6，六层操作系统每层有可执行条款。插画比文档早 4 个月诞生——系统是被活出来的，不是被写出来的。失败版本不删除，冻结不是终点。文档内的 [NEW] 标注、后加的 Мираж 阵眼，证明它仍在生长。</p>
+                <p class="add">版本可以升级、分叉、止损，也可以正式失败；失败同样是下一版本的输入。</p>
+                <div class="evi"><b>证据</b> 102 行 System Boot · 3:4 视觉锚点 · 生长痕迹</div>
             </div>
-        </section>
 
-        <div class="divider"></div>
-
-        <!-- 关键数据 -->
-        <section>
-            <h2 class="section-title"><span class="icon">📊</span> 关键数据</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number" id="kimi-days">855</span>
-                    <span class="stat-label">天<br>Kimi 深度使用</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">5</span>
-                    <span class="stat-label">分<br>毕业设计成绩</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">93.5%</span>
-                    <span class="stat-label">VBA 批量导出<br>成功率</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">B2</span>
-                    <span class="stat-label">俄语<br>语法体系掌握</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">40-50</span>
-                    <span class="stat-label">分钟<br>标准化推文工作流</span>
-                </div>
+            <!-- 证据快照（按证据强度分层） -->
+            <div class="evidence">
+                <div class="evi-item"><span class="v">5 分（优秀）</span><span class="k">毕业设计</span></div>
+                <div class="evi-item"><span class="v">4.51</span><span class="k">本科四年加权平均</span></div>
+                <div class="evi-item"><span class="v">23 图 / 99 术语</span><span class="k">10 天 9 版 · 毕设冲刺</span></div>
+                <div class="evi-item"><span class="v" id="kimi-days">855+</span><span class="k">天 · Kimi 长期协作记录</span></div>
             </div>
-        </section>
 
-        <div class="divider"></div>
-
-        <!-- 内容阵地 -->
-        <section class="social-section">
-            <h2 class="section-title"><span class="icon">📱</span> 内容阵地</h2>
-
-            <div class="social-item">
-                <span class="social-icon">📕</span>
-                <div class="social-content">
+            <!-- 内容阵地 -->
+            <div style="margin-top: 56px;">
+                <div class="social-item">
                     <h4>小红书：游鸿思维进阶指南</h4>
                     <p>INFJ 视角的个人成长与知识管理 · 竖屏思维导图 · AI 效率工具实测</p>
                 </div>
-            </div>
-
-            <div class="social-item">
-                <span class="social-icon">✍️</span>
-                <div class="social-content">
+                <div class="social-item">
                     <h4>运营助教：小熊老师团队</h4>
                     <p>Kimi 辅助推文排版与视觉设计 · 40-50 分钟标准化产出 · 持续商业交付中</p>
                 </div>
-            </div>
-
-            <div class="social-item">
-                <span class="social-icon">📚</span>
-                <div class="social-content">
+                <div class="social-item">
                     <h4>公众号：游鸿在成长</h4>
                     <p>停更蓄力中，网站上线后恢复更新，统一纳入"游鸿世界"入口</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <div class="divider"></div>
+    <!-- 06 起点与身份演化｜S03 春星草原·米拉日 -->
+    <section class="scene scene-origin" id="origin">
+        <picture class="bg-picture">
+            <source srcset="./assets/youhong-world/web/YW-VS-v0.1_S03_Springstar-Grassland-1672.webp" type="image/webp">
+            <img src="./assets/youhong-world/web/YW-VS-v0.1_S03_Springstar-Grassland-1672.jpg"
+                 width="1672" height="941" alt="合生双心蒲公英米拉日生长在晨光草原，种子随风飘向远方。" loading="lazy" decoding="async">
+        </picture>
+        <div class="container">
+            <div class="scene-inner">
+                <h2>从一张竖屏思维导图开始</h2>
+                <p class="lead-text">游鸿社会化起点学习的技能，是竖屏思维导图。</p>
+                <p class="verse">它最早教会我的四件事：<br><br>逻辑连续，<br>思考深刻，<br>阐述生动，<br>记忆流畅。</p>
+                <p class="explain">后来，这四个要求逐渐进入论文、产品、视觉、工作流与 Agent 协作系统之中。</p>
 
-        <!-- 联系 -->
-        <section class="contact">
-            <h2 class="section-title" style="justify-content: center;"><span class="icon">📬</span> 联系我</h2>
-            <div class="contact-links">
-                <a href="mailto:Caffrey024681@gmail.com">📧 邮箱</a>
-                <a href="https://github.com/Caffrey01" target="_blank">🐙 GitHub</a>
-                <a href="https://www.xiaohongshu.com/user/profile/65928dd6000000002001fae7" target="_blank">📕 小红书</a>
-                <a href="javascript:void(0)" onclick="navigator.clipboard.writeText('youhong-infj');this.textContent='🛰 已复制 youhong-infj'">🛰 微信 youhong-infj</a>
+                <div class="scene-panel">
+                    <div class="label">米拉日 · Мираж</div>
+                    <p>一冠双心，一茎共生。</p>
+                    <p>米拉日象征身份跨越中的连续性：变化并不意味着割裂，而是在同一个生命主体里长出新的中心。</p>
+                </div>
+
+                <div class="scene-panel">
+                    <div class="label">身份演化</div>
+                    <div class="timeline">
+                        <div class="t-item"><span>竖屏思维导图</span></div>
+                        <div class="t-item"><span class="t-arrow">→</span><span>俄罗斯留学与电子工程</span></div>
+                        <div class="t-item"><span class="t-arrow">→</span><span>AI 产品与 Agent Skill</span></div>
+                        <div class="t-item"><span class="t-arrow">→</span><span>结构化系统建造者</span></div>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 底部金句 -->
-        <footer class="footer-quote">
-            <p>"登月路上，每一次真正抵达，从来不是一个人的事。"</p>
-            <p class="brand">内蕴万象 · 履践生途</p>
-        </footer>
-    </div>
+    <!-- 07 熔断、止损与修复｜S04 花漠之境 -->
+    <section class="scene scene-repair" id="repair">
+        <picture class="bg-picture">
+            <source srcset="./assets/youhong-world/web/YW-VS-v0.1_S04_Flower-Desert-1672.webp" type="image/webp">
+            <img src="./assets/youhong-world/web/YW-VS-v0.1_S04_Flower-Desert-1672.jpg"
+                 width="1672" height="941" alt="月色下的花漠修复生态，由多肉、芦荟与仙人掌组成。" loading="lazy" decoding="async">
+        </picture>
+        <div class="container">
+            <div class="scene-inner">
+                <h2>系统也需要停止、回退与修复</h2>
+                <div class="scene-panel principle">
+                    <p class="p-name"><span class="p-num">01</span>不满足条件，就不放行</p>
+                    <p>测试通过不等于适合发布；实现存在也不等于已经交付。</p>
+                </div>
+                <div class="scene-panel principle">
+                    <p class="p-name"><span class="p-num">02</span>失败版本需要被保留</p>
+                    <p>后续路线成功，不能反向覆盖早期版本的正式 FAIL。</p>
+                </div>
+                <div class="scene-panel principle">
+                    <p class="p-name"><span class="p-num">03</span>严禁无水空烧</p>
+                    <p>睡眠、触感、感官回归和物理熔断，不是逃离任务，而是系统保护机制。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 08 内在世界与语言｜S05 深海夜域·蝶梦鲸衔月 -->
+    <section class="scene scene-deep" id="deep">
+        <picture class="bg-picture">
+            <source srcset="./assets/youhong-world/web/YW-VS-v0.1_S05_Deepsea-Night-1672.webp" type="image/webp">
+            <img src="./assets/youhong-world/web/YW-VS-v0.1_S05_Deepsea-Night-1672.jpg"
+                 width="1672" height="941" alt="蝶梦鲸衔着月牙，在深蓝夜海上方游动。" loading="lazy" decoding="async">
+        </picture>
+        <div class="container">
+            <div class="scene-inner">
+                <h2>深潜、语言与长记忆</h2>
+                <p class="lead-text">俄语、技术语言与视觉表达，<br>让我反复练习如何在不同系统之间搬运意义。</p>
+                <p class="explain">深潜并不是停留在内在，而是为了带着更清楚的结构重新返回现实。</p>
+                <div class="scene-panel">
+                    <div class="label">语言作为接口</div>
+                    <ul>
+                        <li>俄语 B2：进行中的学习目标；</li>
+                        <li>OIO：输出—输入—再输出的语言训练循环；</li>
+                        <li>技术论文、答辩与跨语言表达；</li>
+                        <li>语言作为中俄技术连接接口。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 09 游鸿世界入口｜S00 日月双悬·一星三境 -->
+    <section class="world-entry" id="world">
+        <picture class="bg-picture">
+            <source srcset="./assets/youhong-world/web/YW-VS-v0.1_S00_World-Overview-1672.webp" type="image/webp">
+            <img src="./assets/youhong-world/web/YW-VS-v0.1_S00_World-Overview-1672.jpg"
+                 width="1672" height="941" alt="日月并存的幻想世界，中央榕树岛连接草原、花漠与深海生态。" loading="lazy" decoding="async">
+        </picture>
+        <div class="world-entry-card">
+            <h2>游鸿世界</h2>
+            <p>一颗由方向、承载、过渡、修复与深潜<br>共同构成的个人星球。</p>
+            <p class="boot">它不是一张插画，<br>而是《System Boot v5.6》的内在生态投影。</p>
+            <div class="cta-row" style="justify-content: center;">
+                <span class="btn disabled" aria-disabled="true" title="世界设定页待建，下一轮接入">查看世界设定（待补）</span>
+                <span class="btn disabled" aria-disabled="true" title="System Boot 在线版待建，下一轮接入">阅读 System Boot（待补）</span>
+            </div>
+            <p class="cta-note" style="text-align: center;">世界设定与 System Boot 在线版将在后续版本开放。</p>
+        </div>
+    </section>
+
+    <!-- 10 联系与页脚 -->
+    <section class="contact" id="contact">
+        <h2>联系我</h2>
+        <div class="contact-links">
+            <a href="mailto:Caffrey024681@gmail.com">邮箱</a>
+            <a href="https://github.com/Caffrey01" target="_blank">GitHub</a>
+            <a href="https://www.xiaohongshu.com/user/profile/65928dd6000000002001fae7" target="_blank">小红书</a>
+            <button type="button" id="wechat-copy">微信 youhong-infj</button>
+        </div>
+    </section>
+
+    </main>
+
+    <footer class="footer-quote">
+        <p>"登月路上，每一次真正抵达，从来不是一个人的事。"</p>
+        <p class="brand">内蕴万象 · 履践生途</p>
+    </footer>
+
     <script>
-        // Kimi 使用天数：锚定北京时间 2026-08-04 = 第 855 天（起始日 2024-04-02）
-        // 按北京时间（UTC+8）每自然日自动 +1
+        // Kimi 使用天数：锚定北京时间 2026-08-04 = 第 855 天（起始日 2024-04-02 计为第 1 天）
+        // 锚点为北京时间 2024-04-02 00:00（UTC 2024-04-01 16:00），按本地时间差计算，跨日以北京时间为准
         (function () {
-            var startUTC = Date.UTC(2024, 3, 1, 16, 0, 0); // 北京时间 2024-04-02 00:00
-            var days = Math.floor((Date.now() - startUTC) / 86400000) + 1; // 起始日计为第 1 天
+            var startUTC = Date.UTC(2024, 3, 1, 16, 0, 0);
+            var days = Math.floor((Date.now() - startUTC) / 86400000) + 1;
             var el = document.getElementById('kimi-days');
-            if (el && days > 0) el.textContent = days;
+            if (el && days > 0) el.textContent = days + '+';
+        })();
+
+        // 微信复制：支持键盘触发，失败时给出回退提示
+        (function () {
+            var btn = document.getElementById('wechat-copy');
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+                var id = 'youhong-infj';
+                function fallback() {
+                    btn.textContent = '请手动添加：' + id;
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(id).then(function () {
+                        btn.textContent = '已复制 ' + id;
+                    }).catch(fallback);
+                } else {
+                    fallback();
+                }
+            });
         })();
     </script>
 </body>
