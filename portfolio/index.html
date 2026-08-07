@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游鸿 Portfolio｜结构化系统建造者</title>
+    <meta name="description" content="从多场域出发，到建造、系统化、连接——四幕不是四个项目，是同一套方法论的四次应用。四张 Evidence Card 承载可验证证据。">
+    <link rel="canonical" href="https://youhong-resume.vercel.app/portfolio/">
+    <meta property="og:title" content="游鸿 Portfolio｜结构化系统建造者">
+    <meta property="og:description" content="四幕成长线与四张项目证据卡：可运行、可验证、可交付的系统建造记录。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://youhong-resume.vercel.app/portfolio/">
+    <meta property="og:image" content="https://youhong-resume.vercel.app/assets/portfolio/og/portfolio-og-1200x630.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "游鸿 Portfolio｜结构化系统建造者",
+        "url": "https://youhong-resume.vercel.app/portfolio/",
+        "inLanguage": "zh-CN",
+        "about": {
+            "@type": "Person",
+            "name": "游鸿",
+            "url": "https://youhong-resume.vercel.app/"
+        },
+        "hasPart": [
+            {"@type": "CreativeWork", "name": "双向 DC-DC 数字电源", "position": 1},
+            {"@type": "CreativeWork", "name": "JobCompass", "position": 2},
+            {"@type": "CreativeWork", "name": "Agent / Skill Factory", "position": 3},
+            {"@type": "CreativeWork", "name": "数字身份双轨发布", "position": 4}
+        ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-light: #F5DE9F;
+            --bg-light-2: #F9CF8F;
+            --paper: #FBF4E2;
+            --paper-soft: #F7EDD6;
+            --ink: #2B3A4A;
+            --ink-soft: #4A5A6A;
+            --gold: #E8B45A;
+            --gold-deep: #A97B2F;
+            --bg-deep: #254464;
+            --line: rgba(169, 123, 47, 0.28);
+            --card-bg: #FFFDF6;
+            --radius: 10px;
+            --nav-h: 56px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * { transition: none !important; animation: none !important; }
+        }
+        body {
+            font-family: 'Noto Sans SC', -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.75;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, .serif { font-family: 'Noto Serif SC', "Songti SC", serif; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: var(--gold-deep); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--gold-deep);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+        .skip-link {
+            position: absolute; left: -999px; top: 0;
+            background: var(--ink); color: #fff; padding: 8px 14px; z-index: 100;
+        }
+        .skip-link:focus { left: 8px; top: 8px; }
+        section { scroll-margin-top: calc(var(--nav-h) + 12px); }
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── 顶栏 ───────────────────────── */
+        .site-nav {
+            position: sticky; top: 0; z-index: 50;
+            height: var(--nav-h);
+            background: rgba(251, 244, 226, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--line);
+            display: flex; align-items: center;
+        }
+        .site-nav .container {
+            width: 100%;
+            display: flex; align-items: center; justify-content: space-between; gap: 16px;
+        }
+        .brand {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 700; font-size: 1.05rem; color: var(--ink);
+            white-space: nowrap;
+        }
+        .brand:hover { text-decoration: none; color: var(--gold-deep); }
+        .nav-links { display: flex; gap: 4px; list-style: none; flex-wrap: wrap; }
+        .nav-links a {
+            color: var(--ink-soft); font-size: 0.9rem;
+            padding: 6px 10px; border-radius: 6px;
+        }
+        .nav-links a:hover { color: var(--gold-deep); background: rgba(232, 180, 90, 0.14); text-decoration: none; }
+
+        /* ── W01 Hero ───────────────────── */
+        .hero {
+            background: linear-gradient(160deg, var(--bg-light) 0%, var(--bg-light-2) 58%, var(--paper) 100%);
+            border-bottom: 1px solid var(--line);
+            padding: 84px 0 72px;
+        }
+        .hero .kicker {
+            font-size: 0.85rem; letter-spacing: 0.22em;
+            color: var(--gold-deep); text-transform: uppercase;
+            margin-bottom: 14px; font-weight: 500;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 4.6vw, 3.1rem);
+            font-weight: 700; line-height: 1.25;
+            margin-bottom: 18px;
+        }
+        .hero .method {
+            font-family: 'Noto Serif SC', serif;
+            font-size: clamp(1.05rem, 2vw, 1.3rem);
+            color: var(--ink);
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+        .hero .lede {
+            max-width: 640px;
+            color: var(--ink-soft);
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+        .hero .meta-chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
+        .hero .meta-chips li {
+            background: rgba(255, 253, 246, 0.75);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 5px 14px;
+            font-size: 0.82rem; color: var(--ink-soft);
+        }
+        .hero .hero-actions { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px; }
+        .btn {
+            display: inline-block;
+            border-radius: 8px;
+            padding: 10px 22px;
+            font-size: 0.95rem; font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-primary { background: var(--ink); color: #FDF8EA; }
+        .btn-primary:hover { background: var(--bg-deep); text-decoration: none; }
+        .btn-ghost { border: 1px solid var(--gold-deep); color: var(--gold-deep); background: transparent; }
+        .btn-ghost:hover { background: rgba(232, 180, 90, 0.16); text-decoration: none; }
+
+        /* ── 区块通用 ───────────────────── */
+        .section { padding: 72px 0; }
+        .section-kicker {
+            font-size: 0.82rem; letter-spacing: 0.2em;
+            color: var(--gold-deep); text-transform: uppercase;
+            margin-bottom: 10px; font-weight: 500;
+        }
+        .section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: 12px; }
+        .section-lede { color: var(--ink-soft); max-width: 680px; margin-bottom: 40px; }
+
+        /* ── W02 四幕时间线 ─────────────── */
+        .timeline { position: relative; }
+        .timeline::before {
+            content: ""; position: absolute; top: 0; bottom: 0;
+            left: 14px; width: 2px;
+            background: linear-gradient(var(--gold), var(--gold-deep));
+            opacity: 0.45;
+        }
+        .act { position: relative; padding: 0 0 44px 52px; }
+        .act:last-child { padding-bottom: 8px; }
+        .act::before {
+            content: ""; position: absolute; left: 7px; top: 8px;
+            width: 14px; height: 14px; border-radius: 50%;
+            background: var(--paper);
+            border: 3px solid var(--gold-deep);
+        }
+        .act-no {
+            font-size: 0.8rem; letter-spacing: 0.18em;
+            color: var(--gold-deep); font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .act-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+        .act-judge {
+            font-family: 'Noto Serif SC', serif;
+            color: var(--gold-deep); font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .act-desc { color: var(--ink-soft); font-size: 0.96rem; max-width: 640px; margin-bottom: 14px; }
+        .act-strip {
+            display: inline-block;
+            background: rgba(232, 180, 90, 0.15);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-size: 0.85rem; color: var(--gold-deep);
+            margin-bottom: 14px;
+        }
+        .act-nodes { list-style: none; }
+        .act-nodes li {
+            padding: 7px 0 7px 18px;
+            border-left: 2px solid var(--line);
+            font-size: 0.93rem; color: var(--ink);
+        }
+        .act-nodes .node-time { color: var(--gold-deep); font-weight: 500; margin-right: 6px; }
+        .act-nodes .node-note { color: var(--ink-soft); }
+        .act-boundary {
+            margin-top: 10px;
+            font-size: 0.82rem; color: var(--ink-soft);
+        }
+        .act-boundary::before { content: "▸ "; color: var(--gold-deep); }
+        .scroll-entry {
+            margin-top: 36px;
+            border-top: 1px dashed var(--line);
+            padding-top: 22px;
+        }
+        .scroll-entry summary {
+            cursor: pointer;
+            color: var(--gold-deep); font-size: 0.95rem; font-weight: 500;
+            list-style: none;
+        }
+        .scroll-entry summary::before { content: "＋ "; }
+        .scroll-entry[open] summary::before { content: "－ "; }
+        .scroll-entry summary:hover { text-decoration: underline; }
+        .scroll-entry .scroll-img {
+            margin-top: 16px;
+            border: 1px solid var(--line); border-radius: var(--radius);
+            overflow: hidden; max-width: 520px;
+        }
+        .scroll-entry .caption { font-size: 0.82rem; color: var(--ink-soft); margin-top: 8px; }
+
+        /* ── W03 四卡网格 ───────────────── */
+        .cards-section { background: var(--paper-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .card-grid {
+            display: grid; grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        .ecard {
+            display: block;
+            background: var(--card-bg);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            color: var(--ink);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .ecard:hover {
+            border-color: var(--gold-deep);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        .ecard img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+        .ecard .ecard-body { padding: 16px 20px 18px; }
+        .ecard .ecard-type { font-size: 0.78rem; color: var(--gold-deep); letter-spacing: 0.08em; margin-bottom: 4px; }
+        .ecard .ecard-name { font-family: 'Noto Serif SC', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+        .ecard .ecard-judge { font-size: 0.88rem; color: var(--ink-soft); }
+        .ecard .ecard-more { font-size: 0.85rem; color: var(--gold-deep); margin-top: 10px; font-weight: 500; }
+
+        /* ── W04 证据详情 ───────────────── */
+        .detail { border-top: 1px solid var(--line); }
+        .detail:first-of-type { border-top: none; }
+        .detail-head { margin-bottom: 26px; }
+        .detail-meta {
+            display: flex; flex-wrap: wrap; gap: 8px;
+            list-style: none; margin-bottom: 12px;
+        }
+        .detail-meta li {
+            font-size: 0.8rem; color: var(--ink-soft);
+            border: 1px solid var(--line); border-radius: 999px;
+            padding: 3px 12px;
+            background: var(--card-bg);
+        }
+        .detail-title { font-size: clamp(1.35rem, 2.6vw, 1.7rem); font-weight: 700; margin-bottom: 8px; }
+        .detail-judge {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.08rem; color: var(--gold-deep);
+            max-width: 720px;
+        }
+        .detail-cols {
+            display: grid; grid-template-columns: 1fr;
+            gap: 32px;
+        }
+        .field { margin-bottom: 22px; }
+        .field .field-label {
+            font-size: 0.8rem; letter-spacing: 0.14em;
+            color: var(--gold-deep); font-weight: 500;
+            margin-bottom: 6px;
+        }
+        .field p, .field li { color: var(--ink); font-size: 0.96rem; }
+        .field ul { list-style: none; }
+        .field ul li { padding: 3px 0 3px 16px; position: relative; }
+        .field ul li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+        .num-chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
+        .num-chips li {
+            background: var(--card-bg);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.86rem;
+        }
+        .num-chips strong { color: var(--gold-deep); font-family: 'Noto Serif SC', serif; margin-right: 6px; }
+        .evidence-fig { margin-bottom: 20px; }
+        .evidence-fig img {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff;
+        }
+        .evidence-fig figcaption { font-size: 0.82rem; color: var(--ink-soft); margin-top: 8px; }
+        .boundary-box {
+            border-left: 3px solid var(--gold-deep);
+            background: rgba(232, 180, 90, 0.1);
+            padding: 12px 18px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem; color: var(--ink-soft);
+            margin-top: 6px;
+        }
+        .detail-links { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.92rem; }
+
+        /* ── W05 PDF ────────────────────── */
+        .pdf-section { background: var(--paper-soft); border-top: 1px solid var(--line); }
+        .pdf-box {
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+            gap: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 32px;
+        }
+        .pdf-box h2 { font-size: 1.35rem; margin-bottom: 8px; }
+        .pdf-box p { color: var(--ink-soft); font-size: 0.95rem; max-width: 520px; }
+        .pdf-meta { font-size: 0.82rem; color: var(--ink-soft); margin-top: 10px; }
+
+        /* ── W06 Continue ───────────────── */
+        .continue-section { background: var(--bg-light); border-top: 1px solid var(--line); }
+        .continue-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .continue-item {
+            background: rgba(255, 253, 246, 0.8);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px 24px;
+        }
+        .continue-item .c-label { font-size: 0.8rem; letter-spacing: 0.14em; color: var(--gold-deep); margin-bottom: 6px; }
+        .continue-item a { font-size: 1.02rem; font-weight: 500; color: var(--ink); }
+        .continue-item a:hover { color: var(--gold-deep); }
+        .closing-line {
+            margin-top: 44px;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.08rem;
+            color: var(--ink);
+            max-width: 620px;
+            line-height: 1.9;
+        }
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 28px 0 36px;
+            background: var(--paper);
+        }
+        footer .container {
+            display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+            font-size: 0.82rem; color: var(--ink-soft);
+        }
+        footer .sig { font-family: 'Noto Serif SC', serif; color: var(--gold-deep); }
+
+        /* ── 768 ────────────────────────── */
+        @media (max-width: 767px) {
+            .site-nav { height: auto; min-height: var(--nav-h); padding: 4px 0; }
+        }
+        @media (min-width: 768px) {
+            .card-grid { grid-template-columns: 1fr 1fr; }
+            .detail-cols { grid-template-columns: 1fr 1fr; }
+            .continue-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        /* ── 1440：时间线中轴 ────────────── */
+        @media (min-width: 1100px) {
+            .timeline::before { left: 50%; transform: translateX(-1px); }
+            .act { width: calc(50% - 40px); padding: 0 0 56px 0; }
+            .act::before { top: 8px; }
+            .act:nth-child(odd) { margin-right: auto; text-align: left; }
+            .act:nth-child(odd)::before { right: -48px; left: auto; }
+            .act:nth-child(even) { margin-left: auto; }
+            .act:nth-child(even)::before { left: -48px; }
+        }
+    </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<nav class="site-nav" aria-label="Portfolio 导航">
+    <div class="container">
+        <a class="brand" href="../">游鸿 · Portfolio</a>
+        <ul class="nav-links">
+            <li><a href="#timeline">四幕</a></li>
+            <li><a href="#cards">证据卡</a></li>
+            <li><a href="#pdf">Portfolio PDF</a></li>
+            <li><a href="#continue">继续</a></li>
+            <li><a href="../">返回首页</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main id="main">
+
+<!-- W01 Hero -->
+<header class="hero">
+    <div class="container">
+        <p class="kicker">Portfolio V1.0 · 四幕｜一条有版本号的成长线</p>
+        <h1>游鸿｜结构化系统建造者</h1>
+        <p class="method">把复杂问题做成<br>可运行、可验证、可交付的系统</p>
+        <p class="lede">从多场域出发，到建造、系统化、连接——四幕不是四个项目，是同一套方法论的四次应用。</p>
+        <ul class="meta-chips">
+            <li>四幕成长线 · 10 个节点</li>
+            <li>四张 Evidence Card</li>
+            <li>事实母版裁剪 · 公开边界写明</li>
+        </ul>
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="#cards">查看四张证据卡</a>
+            <a class="btn btn-ghost" href="#timeline">先看四幕成长线</a>
+        </div>
+    </div>
+</header>
+
+<!-- W02 四幕时间线 -->
+<section class="section" id="timeline" aria-labelledby="timeline-title">
+    <div class="container">
+        <p class="section-kicker">Four Acts</p>
+        <h2 class="section-title" id="timeline-title">四幕成长线</h2>
+        <p class="section-lede">一条有版本号的成长线：每一幕都留下可继承的东西——规则、证据与交付形式。</p>
+
+        <div class="timeline">
+
+            <article class="act">
+                <p class="act-no">第一幕</p>
+                <h3 class="act-title">探索者｜多场域出发</h3>
+                <p class="act-judge">先找规则，再谈喜欢</p>
+                <p class="act-desc">从重庆到俄罗斯，俄语、电子工程、竖屏导图与内容创作同时推进。不急着选定主方向，先在每个场域留下可继承的东西：每进入一个新场域，先找它的规则、证据和交付形式。</p>
+                <ul class="act-nodes">
+                    <li><span class="node-time">2022.09</span>开始本科<span class="node-note">｜电子信息科学与技术，能力的原点场域</span></li>
+                    <li><span class="node-time">2024.01</span>俄语 B1<span class="node-note">｜第二语言中的证据起点（TPU 证书）</span></li>
+                    <li><span class="node-time">2024.08.11</span>赴俄罗斯继续学习<span class="node-note">｜语言、专业、生活同步重建</span></li>
+                    <li><span class="node-time">2025—2026</span>KuzSTU 两段实验室实践<span class="node-note">｜在真实工程环境中校准专业</span></li>
+                </ul>
+            </article>
+
+            <article class="act">
+                <p class="act-no">第二幕</p>
+                <h3 class="act-title">建造者｜边界划定与回交阈值</h3>
+                <p class="act-judge">工程是最硬的能力证词</p>
+                <p class="act-desc">答辩前两周，23 张图表与 99 条术语待统一。划定边界：AI 负责生成与对照，我负责确认与背书；写下四条红线，10 天 9 个版本。同一时期，给七个 AI 协作角色立下角色卡与回交阈值。</p>
+                <p class="act-strip">23 张图表｜99 条术语｜10 天 9 版</p>
+                <ul class="act-nodes">
+                    <li><span class="node-time">2026.06</span>双向 DC-DC 毕业设计<span class="node-note">｜完成设计与仿真验证，俄语答辩 5 分</span></li>
+                </ul>
+                <p class="act-boundary">无实物实测——边界写清楚，证据才可信</p>
+            </article>
+
+            <article class="act">
+                <p class="act-no">第三幕</p>
+                <h3 class="act-title">系统化者｜版本迭代</h3>
+                <p class="act-judge">经验只有封装后才可复用</p>
+                <p class="act-desc">零散保存的规则会在下一次忙碌中丢失。我把方法论沉淀为 102 行六层个人操作系统；游鸿世界的视觉早于文档四个月——系统不是一次写完的，是被活出来的。简历也建立了唯一事实母版。</p>
+                <ul class="act-nodes">
+                    <li><span class="node-time">2026.05—06</span>JobCompass<span class="node-note">｜完成比赛提交；停止扩张也是产品判断</span></li>
+                    <li><span class="node-time">2026.06</span>七角色 Agent 集群<span class="node-note">｜职责、禁区、回交阈值，v0.1-final</span></li>
+                    <li><span class="node-time">2026.06—07</span>Skill Factory<span class="node-note">｜把跑通的流程封装成六步法</span></li>
+                    <li><span class="node-time">2026.06.06</span>System Boot v5.6<span class="node-note">｜102 行六层个人操作系统</span></li>
+                </ul>
+            </article>
+
+            <article class="act">
+                <p class="act-no">第四幕</p>
+                <h3 class="act-title">连接者｜让个人积累成为可访问、可验证的公共接口</h3>
+                <p class="act-judge">让积累成为可访问接口</p>
+                <p class="act-desc">系统只对自己有用还不够。一份事实母版，裁剪出多份简历接口；双轨网页同日上线，哈希三方一致；发布本身归档为可回滚、可复核的版本。连接的前提，是别人也能读懂。</p>
+                <p class="act-strip">事实母版 → 简历接口 → 双轨网页 → 哈希复检 → release 归档</p>
+                <ul class="act-nodes">
+                    <li><span class="node-time">2026.08.06</span>双轨个人网页发布<span class="node-note">｜Vercel + 境内镜像同日上线</span></li>
+                </ul>
+            </article>
+
+        </div>
+
+        <details class="scroll-entry">
+            <summary>查看视觉版《四幕成长长卷》（长图，懒加载）</summary>
+            <div class="scroll-img">
+                <img src="../assets/portfolio/timeline/growth-scroll-960.webp"
+                     width="960" height="1920" loading="lazy" decoding="async"
+                     alt="《游鸿 · 四幕成长长卷》完整视觉长图：探索者、建造者、系统化者、连接者四幕节点与卷尾三主线。">
+            </div>
+            <p class="caption">长卷为同一套四幕文案的视觉成图版（4C.2 冻结版），内容与上方时间线一致。</p>
+        </details>
+    </div>
+</section>
+
+<!-- W03 四卡网格 -->
+<section class="section cards-section" id="cards" aria-labelledby="cards-title">
+    <div class="container">
+        <p class="section-kicker">Evidence Cards</p>
+        <h2 class="section-title" id="cards-title">四张项目证据卡</h2>
+        <p class="section-lede">每张卡只写能被证据支撑的内容：问题、关键动作、关键数字、结果，以及公开边界。</p>
+
+        <div class="card-grid">
+            <a class="ecard" href="#c01">
+                <img src="../assets/portfolio/cards/c01-card-640.webp"
+                     srcset="../assets/portfolio/cards/c01-card-640.webp 640w, ../assets/portfolio/cards/c01-card-960.webp 960w"
+                     sizes="(min-width: 768px) 50vw, 100vw"
+                     width="640" height="360" loading="lazy" decoding="async"
+                     alt="C01 证据卡：双向 DC-DC 数字电源，双板 PCB 3D 主视觉与关键数字。">
+                <div class="ecard-body">
+                    <p class="ecard-type">C01 · 电子工程毕业设计</p>
+                    <p class="ecard-name">双向 DC-DC 数字电源</p>
+                    <p class="ecard-judge">从控制逻辑、保护状态机到双板 PCB，完成一个双向数字电源的设计与仿真闭环。</p>
+                    <p class="ecard-more">展开证据 →</p>
+                </div>
+            </a>
+
+            <a class="ecard" href="#c02">
+                <img src="../assets/portfolio/cards/c02-card-640.webp"
+                     srcset="../assets/portfolio/cards/c02-card-640.webp 640w, ../assets/portfolio/cards/c02-card-960.webp 960w"
+                     sizes="(min-width: 768px) 50vw, 100vw"
+                     width="640" height="360" loading="lazy" decoding="async"
+                     alt="C02 证据卡：JobCompass AI 求职导航系统，MVP 闭环与 30 条 CASE 回归。">
+                <div class="ecard-body">
+                    <p class="ecard-type">C02 · AI 求职导航系统</p>
+                    <p class="ecard-name">JobCompass</p>
+                    <p class="ecard-judge">停止扩张不是失败，而是在证据不足时保护产品边界。</p>
+                    <p class="ecard-more">展开证据 →</p>
+                </div>
+            </a>
+
+            <a class="ecard" href="#c03">
+                <img src="../assets/portfolio/cards/c03-card-640.webp"
+                     srcset="../assets/portfolio/cards/c03-card-640.webp 640w, ../assets/portfolio/cards/c03-card-960.webp 960w"
+                     sizes="(min-width: 768px) 50vw, 100vw"
+                     width="640" height="360" loading="lazy" decoding="async"
+                     alt="C03 证据卡：Agent / Skill Factory 个人 AI 协作系统，七角色与六步封装。">
+                <div class="ecard-body">
+                    <p class="ecard-type">C03 · 个人 AI 协作系统</p>
+                    <p class="ecard-name">Agent / Skill Factory</p>
+                    <p class="ecard-judge">把个人经验变成可重复调用的流程，是从「会做」走向「可协作」的关键一步。</p>
+                    <p class="ecard-more">展开证据 →</p>
+                </div>
+            </a>
+
+            <a class="ecard" href="#c04">
+                <img src="../assets/portfolio/cards/c04-card-640.webp"
+                     srcset="../assets/portfolio/cards/c04-card-640.webp 640w, ../assets/portfolio/cards/c04-card-960.webp 960w"
+                     sizes="(min-width: 768px) 50vw, 100vw"
+                     width="640" height="360" loading="lazy" decoding="async"
+                     alt="C04 证据卡：数字身份双轨发布，Vercel 与境内镜像同日上线。">
+                <div class="ecard-body">
+                    <p class="ecard-type">C04 · Portfolio / Resume System</p>
+                    <p class="ecard-name">数字身份双轨发布</p>
+                    <p class="ecard-judge">让个人积累从内部资产，变成可访问、可验证、可回滚的公共接口。</p>
+                    <p class="ecard-more">展开证据 →</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- W04 证据详情 -->
+<section class="section" id="details" aria-label="证据详情">
+    <div class="container">
+
+        <!-- C01 -->
+        <article class="section detail" id="c01" aria-labelledby="c01-title">
+            <div class="detail-head">
+                <ul class="detail-meta">
+                    <li>C01</li><li>电子工程毕业设计</li><li>2026.03—2026.06</li><li>个人毕业设计</li>
+                </ul>
+                <h2 class="detail-title" id="c01-title">双向 DC-DC 数字电源</h2>
+                <p class="detail-judge">从控制逻辑、保护状态机到双板 PCB，完成一个双向数字电源的设计与仿真闭环。</p>
+            </div>
+            <div class="detail-cols">
+                <div>
+                    <div class="field">
+                        <p class="field-label">核心问题</p>
+                        <p>设计一套基于 STM32F334C8T6 的双向 4-Switch Buck-Boost 数字电源系统，控制、保护与功率硬件同时成立。</p>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">关键动作</p>
+                        <ul>
+                            <li>单电压环 PI + 输出限流</li>
+                            <li>HRTIM 250kHz / 4µs 控制周期</li>
+                            <li>六态 FSM + 五重保护 + Hard-Stop</li>
+                            <li>双板 PCB：功率 / 控制分离</li>
+                        </ul>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">关键数字</p>
+                        <ul class="num-chips">
+                            <li><strong>250kHz</strong>HRTIM 开关频率</li>
+                            <li><strong>4µs</strong>控制周期</li>
+                            <li><strong>6 态</strong>保护状态机</li>
+                        </ul>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">结果</p>
+                        <p>设计与仿真验证完成；俄语答辩 5 分（满分）。</p>
+                    </div>
+                    <div class="boundary-box">公开边界｜完成设计与仿真验证；实物打板、上电和实测证据尚未进入本版本。</div>
+                    <div class="detail-links">
+                        <a href="../assets/portfolio/cards/c01-card-1280.webp" target="_blank" rel="noopener">查看完整 Evidence Card</a>
+                        <a href="../assets/portfolio/pdf/youhong-portfolio-v1.0.pdf" target="_blank" rel="noopener">Portfolio V1.0 P05（PDF）</a>
+                    </div>
+                </div>
+                <div>
+                    <figure class="evidence-fig">
+                        <img src="../assets/portfolio/evidence/c01-hero-pcb2.webp" width="1200" height="677" loading="lazy" decoding="async"
+                             alt="控制板 PCB 3D 设计图：功率板与控制板分离架构中的控制板。">
+                        <figcaption>双板 PCB 3D｜证明功率板与控制板的板级设计与分离架构已完成。设计图，非实物照片。</figcaption>
+                    </figure>
+                    <figure class="evidence-fig">
+                        <img src="../assets/portfolio/evidence/c01-topology.webp" width="1200" height="875" loading="lazy" decoding="async"
+                             alt="系统拓扑设计图：双向 4-Switch Buck-Boost 功率级与控制链路结构。">
+                        <figcaption>系统拓扑｜证明双向 4-Switch Buck-Boost 功率级与控制链路结构。设计图。</figcaption>
+                    </figure>
+                    <figure class="evidence-fig">
+                        <img src="../assets/portfolio/evidence/c01-psim.webp" width="1200" height="866" loading="lazy" decoding="async"
+                             alt="PSIM 20V 稳态仿真波形：验证单电压环 PI 与双向模式控制逻辑。">
+                        <figcaption>PSIM 20V 稳态仿真｜用于验证单电压环 PI 与双向模式控制逻辑。仿真数据，非实测。</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </article>
+
+        <!-- C02 -->
+        <article class="section detail" id="c02" aria-labelledby="c02-title">
+            <div class="detail-head">
+                <ul class="detail-meta">
+                    <li>C02</li><li>AI 求职导航系统</li><li>2026.05—2026.06</li><li>个人 AI 产品 / 比赛项目</li>
+                </ul>
+                <h2 class="detail-title" id="c02-title">JobCompass</h2>
+                <p class="detail-judge">停止扩张不是失败，而是在证据不足时保护产品边界。</p>
+            </div>
+            <div class="detail-cols">
+                <div>
+                    <div class="field">
+                        <p class="field-label">核心问题</p>
+                        <p>岗位信息分散、匹配判断依赖感觉，需要把「岗位—简历—匹配结果」变成可测试闭环。</p>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">关键动作</p>
+                        <ul>
+                            <li>Web MVP 输入→输出闭环</li>
+                            <li>Mock / Real 双 Provider</li>
+                            <li>30 条 CASE 回归测试</li>
+                            <li>识别 Real Provider 评分偏差，停止扩张</li>
+                        </ul>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">关键数字</p>
+                        <ul class="num-chips">
+                            <li><strong>30 CASE</strong>匹配逻辑的回归测试集</li>
+                            <li><strong>2 种 Provider</strong>Mock 与 Real 对照</li>
+                        </ul>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">结果</p>
+                        <p>完成比赛提交。</p>
+                    </div>
+                    <div class="boundary-box">项目状态｜完成 MVP 与比赛提交，停止在当前证据能够支持的边界内。</div>
+                    <div class="detail-links">
+                        <a href="../assets/portfolio/cards/c02-card-1280.webp" target="_blank" rel="noopener">查看完整 Evidence Card</a>
+                        <a href="../assets/portfolio/pdf/youhong-portfolio-v1.0.pdf" target="_blank" rel="noopener">Portfolio V1.0 P06（PDF）</a>
+                    </div>
+                </div>
+                <div>
+                    <figure class="evidence-fig">
+                        <img src="../assets/portfolio/evidence/c02-hero-mvp.webp" width="1200" height="581" loading="lazy" decoding="async"
+                             alt="JobCompass Web MVP 输入到输出闭环截图：岗位、简历与匹配结果。">
+                        <figcaption>MVP 闭环截图｜证明「岗位—简历—匹配结果」闭环可运行。脱敏公开件。</figcaption>
+                    </figure>
+                    <figure class="evidence-fig">
+                        <img src="../assets/portfolio/evidence/c02-case-regression.webp" width="1200" height="595" loading="lazy" decoding="async"
+                             alt="30 条 CASE 回归测试记录，含 CASE_030 边界样本。">
+                        <figcaption>CASE 回归｜证明匹配判断可测试、可复现；CASE_030 为边界样本。</figcaption>
+                    </figure>
+                    <figure class="evidence-fig">
+                        <img src="../assets/portfolio/evidence/c02-provider-flow.webp" width="1027" height="343" loading="lazy" decoding="async"
+                             alt="Mock 与 Real 双 Provider 对照评分流程图解。">
+                        <figcaption>Provider 流程｜说明 Mock / Real 双通道如何对照评分。可编辑图解，非系统截图。</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </article>
+
+        <!-- C03 -->
+        <article class="section detail" id="c03" aria-labelledby="c03-title">
+            <div class="detail-head">
+                <ul class="detail-meta">
+                    <li>C03</li><li>个人 AI 协作系统</li><li>2026.06 起</li><li>系统设计 / 工作流编排 / Skill 封装</li>
+                </ul>
+                <h2 class="detail-title" id="c03-title">Agent / Skill Factory</h2>
+                <p class="detail-judge">把个人经验变成可重复调用的流程，是从「会做」走向「可协作」的关键一步。</p>
+            </div>
+            <div class="detail-cols">
+                <div>
+                    <div class="field">
+                        <p class="field-label">核心问题</p>
+                        <p>AI 工具越来越多，但没有边界、角色和回交机制时，协作会变成重复劳动和失控扩写。</p>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">关键动作</p>
+                        <ul>
+                            <li>七角色集群：职责与禁区</li>
+                            <li>同一任务不重复分发</li>
+                            <li>回交阈值 3 行→150—200 行</li>
+                            <li>patch notes 主动减规则</li>
+                            <li>Skill 六步封装成冻结版本</li>
+                        </ul>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">双层结构</p>
+                        <ul>
+                            <li>Agent｜解决角色、职责、禁区与回交</li>
+                            <li>Skill｜解决输入、输出、边界、测试与冻结</li>
+                        </ul>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">关键数字</p>
+                        <ul class="num-chips">
+                            <li><strong>7 角色</strong>协作集群分工数</li>
+                            <li><strong>6 步</strong>Skill 封装流程</li>
+                            <li><strong>6 条 patch notes</strong>其中 3 条是减规则</li>
+                        </ul>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">结果</p>
+                        <p>Agent 集群 v0.1-final 冻结；Skill 六步封装机制已形成。</p>
+                    </div>
+                    <div class="boundary-box">公开边界｜Agent 放大判断，不替代最终决策；Skill 只有在输入、输出、边界与测试条件明确后才冻结。</div>
+                    <div class="detail-links">
+                        <a href="../assets/portfolio/cards/c03-card-1280.webp" target="_blank" rel="noopener">查看完整 Evidence Card</a>
+                        <a href="../assets/portfolio/pdf/youhong-portfolio-v1.0.pdf" target="_blank" rel="noopener">Portfolio V1.0 P08–P09（PDF）</a>
+                    </div>
+                </div>
+                <div>
+                    <figure class="evidence-fig">
+                        <img src="../assets/portfolio/evidence/c03-hero-six-steps.webp" width="1136" height="220" loading="lazy" decoding="async"
+                             alt="Skill 六步封装流程图：真实任务、输入合同、输出合同、边界、测试案例、冻结版本。">
+                        <figcaption>Skill 六步流程｜证明经验封装有固定管线：真实任务→输入合同→输出合同→边界→测试案例→冻结版本。可编辑图解，非系统截图。</figcaption>
+                    </figure>
+                    <figure class="evidence-fig">
+                        <img src="../assets/portfolio/evidence/c03-seven-roles.webp" width="950" height="636" loading="lazy" decoding="async"
+                             alt="七角色协作结构图：职责、禁区与回交阈值，游鸿为最终判断主体。">
+                        <figcaption>七角色协作结构｜证明多 Agent 协作有职责、禁区与回交阈值，游鸿是最终判断主体。可编辑图解，非系统截图。</figcaption>
+                    </figure>
+                    <div class="field">
+                        <p class="field-label">patch note 摘录</p>
+                        <p style="font-size:0.9rem; color: var(--ink-soft);">阈值按真实使用反馈修订：「3 行以上」放宽为「3 个以上核心文件 / 约 150—200 行」。（Patch Notes v0.1→v0.1-final，补丁 2，2026-06-09）</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- C04 -->
+        <article class="section detail" id="c04" aria-labelledby="c04-title">
+            <div class="detail-head">
+                <ul class="detail-meta">
+                    <li>C04</li><li>Portfolio / Resume System</li><li>2026.08.06</li><li>身份系统设计 / 事实治理 / 发布验证</li>
+                </ul>
+                <h2 class="detail-title" id="c04-title">数字身份双轨发布</h2>
+                <p class="detail-judge">让个人积累从内部资产，变成可访问、可验证、可回滚的公共接口。</p>
+            </div>
+            <div class="detail-cols">
+                <div>
+                    <div class="field">
+                        <p class="field-label">核心问题</p>
+                        <p>拥有大量文档、项目和 Skill，不等于拥有一个外部可理解、可访问的数字身份。</p>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">关键动作</p>
+                        <ul>
+                            <li>陈游鸿 × 游鸿身份合同</li>
+                            <li>一份事实母版，多份简历接口</li>
+                            <li>Vercel + GitHub Pages 双轨</li>
+                            <li>公开简历三方哈希复检</li>
+                            <li>.nojekyll 修复 + release 归档</li>
+                        </ul>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">关键数字</p>
+                        <ul class="num-chips">
+                            <li><strong>2 个访问入口</strong>同一身份系统的双轨</li>
+                        </ul>
+                    </div>
+                    <div class="field">
+                        <p class="field-label">结果</p>
+                        <p>Portfolio / Resume V1.2 双轨可验证发布。</p>
+                    </div>
+                    <div class="boundary-box">公开边界｜双轨用于提升不同网络环境下的访问稳定性，并通过哈希复检与 release 归档保证版本可复核。</div>
+                    <div class="detail-links">
+                        <a href="../assets/portfolio/cards/c04-card-1280.webp" target="_blank" rel="noopener">查看完整 Evidence Card</a>
+                        <a href="../assets/portfolio/pdf/youhong-portfolio-v1.0.pdf" target="_blank" rel="noopener">Portfolio V1.0 P12（PDF）</a>
+                    </div>
+                </div>
+                <div>
+                    <figure class="evidence-fig">
+                        <img src="../assets/portfolio/evidence/c04-hero-vercel.webp" width="1200" height="750" loading="lazy" decoding="async"
+                             alt="双站点同状态截图：Vercel 与境内镜像两个入口内容一致、同日上线。">
+                        <figcaption>双站点同状态截图｜证明两个入口内容一致、同日上线。公开页面脱敏件。</figcaption>
+                    </figure>
+                    <figure class="evidence-fig">
+                        <img src="../assets/portfolio/evidence/c04-dual-track-flow.webp" width="1136" height="297" loading="lazy" decoding="async"
+                             alt="双轨发布链路图：发布是可回滚、可复核的版本。">
+                        <figcaption>发布链路｜证明发布是可回滚、可复核的版本，不是终点截图。可编辑图解。</figcaption>
+                    </figure>
+                    <div class="field">
+                        <p class="field-label">.nojekyll 支线</p>
+                        <p style="font-size:0.9rem; color: var(--ink-soft);">FAIL 被记录并被修复，而非被覆盖——修复记录已进入 release 归档。</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- W05 Public PDF -->
+<section class="section pdf-section" id="pdf" aria-labelledby="pdf-title">
+    <div class="container">
+        <div class="pdf-box">
+            <div>
+                <p class="section-kicker">Public PDF</p>
+                <h2 id="pdf-title">游鸿作品集 Portfolio V1.0（公开版）</h2>
+                <p>14 页完整作品集：四幕叙事、四张证据卡与公开边界说明。本页全部文案与图片均从该公开版的事实母版裁剪。</p>
+                <p class="pdf-meta">PDF · 约 2.2 MB · 公开脱敏件 · V1.0 FINAL</p>
+            </div>
+            <div>
+                <a class="btn btn-primary" href="../assets/portfolio/pdf/youhong-portfolio-v1.0.pdf" target="_blank" rel="noopener">打开 / 下载 PDF</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- W06 Continue -->
+<section class="section continue-section" id="continue" aria-labelledby="continue-title">
+    <div class="container">
+        <p class="section-kicker">Continue</p>
+        <h2 class="section-title" id="continue-title">从这里继续了解</h2>
+        <div class="continue-grid">
+            <div class="continue-item">
+                <p class="c-label">GitHub</p>
+                <a href="https://github.com/Caffrey01" target="_blank" rel="noopener noreferrer">github.com/Caffrey01</a>
+            </div>
+            <div class="continue-item">
+                <p class="c-label">Email</p>
+                <a href="mailto:Caffrey024681@gmail.com">Caffrey024681@gmail.com</a>
+            </div>
+            <div class="continue-item">
+                <p class="c-label">首页</p>
+                <a href="../">返回 youhong-resume 首页</a>
+            </div>
+        </div>
+        <p class="closing-line">当一个人的经历能够被访问、被验证、被继续调用时，数字身份才不只是介绍，而开始成为连接。</p>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <span>游鸿 Portfolio V1.0 · 事实母版裁剪 · 公开边界已写明</span>
+        <span class="sig">内蕴万象 · 履践生途</span>
+    </div>
+</footer>
+
+</body>
+</html>
